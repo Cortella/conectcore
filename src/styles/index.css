@@ -204,11 +204,13 @@ a {
   transition: width var(--duration-fast) var(--ease-out);
 }
 
-.nav__link:hover {
+.nav__link:hover,
+.nav__link.active {
   color: var(--gray-900);
 }
 
-.nav__link:hover::after {
+.nav__link:hover::after,
+.nav__link.active::after {
   width: 100%;
 }
 
