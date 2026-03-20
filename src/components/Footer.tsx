@@ -18,8 +18,11 @@ export function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <a href="#" className="nav__logo">
-              <span className="logo-icon">◈</span>
-              <span className="logo-text">Conectcore</span>
+              <img
+                src="/assets/logo_arvore.png"
+                alt="Conectcore"
+                className="logo-img"
+              />
             </a>
             <p>
               Engenharia de Software Inteligente.

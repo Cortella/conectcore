@@ -88,7 +88,7 @@ export function Contact() {
                 <span className="contact__detail-icon">📍</span>
                 <div>
                   <strong>Localização</strong>
-                  <span>São Paulo, SP — Brasil</span>
+                  <span>Belo Horizonte, MG — Brasil</span>
                 </div>
               </div>
             </div>

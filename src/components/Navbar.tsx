@@ -62,8 +62,11 @@ export function Navbar() {
     <nav className={`nav${isScrolled ? " nav--scrolled" : ""}`} id="nav">
       <div className="nav__inner">
         <a href="#" className="nav__logo">
-          <span className="logo-icon">◈</span>
-          <span className="logo-text">Conectcore</span>
+          <img
+            src="/assets/logo_arvore.png"
+            alt="Conectcore"
+            className="logo-img"
+          />
         </a>
         <div className={`nav__links${isMobileOpen ? " open" : ""}`}>
           {links.map((link) => (
