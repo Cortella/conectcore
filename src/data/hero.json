@@ -1,0 +1,14 @@
+{
+    "badge": "Engenharia de Software Inteligente",
+    "titleLine1": "Construímos o",
+    "titleAccent": "futuro digital.",
+    "subtitle": "Software otimizado. Produtos inteligentes. Infraestrutura que escala. Transformamos ideias complexas em soluções elegantes.",
+    "primaryAction": {
+        "label": "Nossas Soluções",
+        "href": "#services"
+    },
+    "secondaryAction": {
+        "label": "Fale Conosco",
+        "href": "#contact"
+    }
+}

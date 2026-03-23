@@ -1,0 +1,25 @@
+[
+    {
+        "id": "metric-01",
+        "target": 150,
+        "suffix": "+",
+        "label": "Projetos Entregues"
+    },
+    {
+        "id": "metric-02",
+        "target": 8,
+        "label": "Anos de Mercado"
+    },
+    {
+        "id": "metric-03",
+        "target": 50,
+        "suffix": "+",
+        "label": "Engenheiros"
+    },
+    {
+        "id": "metric-04",
+        "target": 99,
+        "suffix": "%",
+        "label": "Satisfação dos Clientes"
+    }
+]

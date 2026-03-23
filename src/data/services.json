@@ -1,0 +1,80 @@
+[
+    {
+        "id": "svc-01",
+        "number": "01",
+        "title": "Engenharia de Software",
+        "desc": "Desenvolvimento de software sob medida com arquitetura robusta, código limpo e performance otimizada. Do backend ao frontend.",
+        "tags": [
+            "Backend",
+            "Frontend",
+            "APIs",
+            "Microserviços"
+        ],
+        "icon": "code"
+    },
+    {
+        "id": "svc-02",
+        "number": "02",
+        "title": "Produtos Digitais & Apps",
+        "desc": "Construção de produtos digitais completos — apps mobile, plataformas web e SaaS — com foco em UX excepcional e escalabilidade.",
+        "tags": [
+            "iOS",
+            "Android",
+            "SaaS",
+            "PWA"
+        ],
+        "icon": "mobile"
+    },
+    {
+        "id": "svc-03",
+        "number": "03",
+        "title": "Infraestrutura & Cloud",
+        "desc": "Integração e otimização de infraestrutura: cloud-native, DevOps, CI/CD pipelines e arquiteturas que escalam automaticamente.",
+        "tags": [
+            "AWS",
+            "Azure",
+            "GCP",
+            "DevOps"
+        ],
+        "icon": "cloud"
+    },
+    {
+        "id": "svc-04",
+        "number": "04",
+        "title": "Otimização de Performance",
+        "desc": "Análise e otimização de sistemas existentes: refatoração, melhoria de latência, redução de custos e eliminação de gargalos.",
+        "tags": [
+            "Profiling",
+            "Refactoring",
+            "Caching",
+            "Scaling"
+        ],
+        "icon": "optimize"
+    },
+    {
+        "id": "svc-05",
+        "number": "05",
+        "title": "Integrações & APIs",
+        "desc": "Conectamos sistemas, plataformas e serviços com APIs robustas, integrações em tempo real e orquestrações inteligentes.",
+        "tags": [
+            "REST",
+            "GraphQL",
+            "Webhooks",
+            "gRPC"
+        ],
+        "icon": "integration"
+    },
+    {
+        "id": "svc-06",
+        "number": "06",
+        "title": "Consultoria Técnica",
+        "desc": "Consultoria estratégica em arquitetura de software, modernização de legado, stack tecnológica e cultura de engenharia.",
+        "tags": [
+            "Arquitetura",
+            "Legado",
+            "Strategy",
+            "Mentoria"
+        ],
+        "icon": "consulting"
+    }
+]

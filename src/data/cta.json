@@ -1,0 +1,12 @@
+{
+    "title": "Pronto para construir\nalgo <em>extraordinário?</em>",
+    "subtitle": "Vamos conversar sobre como a Conectcore pode transformar sua visão em realidade.",
+    "primaryAction": {
+        "label": "Iniciar Projeto",
+        "href": "#contact"
+    },
+    "whatsappAction": {
+        "label": "WhatsApp",
+        "href": "https://wa.me/5511999999999"
+    }
+}

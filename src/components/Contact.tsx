@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "./Reveal";
+import { defaultContact } from "../data";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -62,35 +63,26 @@ export function Contact() {
               podemos transformá-la em realidade.
             </p>
             <div className="contact__details">
-              <div className="contact__detail">
-                <span className="contact__detail-icon">✉</span>
-                <div>
-                  <strong>Email</strong>
-                  <a href="mailto:contato@conectcore.com.br">
-                    contato@conectcore.com.br
-                  </a>
+              {defaultContact.details.map((d) => (
+                <div className="contact__detail" key={d.id}>
+                  <span className="contact__detail-icon">{d.icon}</span>
+                  <div>
+                    <strong>{d.label}</strong>
+                    {d.href ? (
+                      <a
+                        href={d.href}
+                        {...(d.external
+                          ? { target: "_blank", rel: "noopener" }
+                          : {})}
+                      >
+                        {d.value}
+                      </a>
+                    ) : (
+                      <span>{d.value}</span>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div className="contact__detail">
-                <span className="contact__detail-icon">📱</span>
-                <div>
-                  <strong>WhatsApp</strong>
-                  <a
-                    href="https://wa.me/5511999999999"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    +55 (11) 99999-9999
-                  </a>
-                </div>
-              </div>
-              <div className="contact__detail">
-                <span className="contact__detail-icon">📍</span>
-                <div>
-                  <strong>Localização</strong>
-                  <span>Belo Horizonte, MG — Brasil</span>
-                </div>
-              </div>
+              ))}
             </div>
           </Reveal>
           <Reveal>
@@ -149,12 +141,11 @@ export function Contact() {
                   <option value="" disabled>
                     Selecione o assunto
                   </option>
-                  <option value="software">Engenharia de Software</option>
-                  <option value="product">Produto Digital / App</option>
-                  <option value="infra">Infraestrutura &amp; Cloud</option>
-                  <option value="optimization">Otimização</option>
-                  <option value="consulting">Consultoria</option>
-                  <option value="other">Outro</option>
+                  {defaultContact.subjects.map((s) => (
+                    <option key={s.value} value={s.value}>
+                      {s.label}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="form-group">

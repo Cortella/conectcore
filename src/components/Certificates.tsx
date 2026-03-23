@@ -1,12 +1,8 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { Reveal } from "./Reveal";
 import { Lightbox } from "./Lightbox";
-
-const certificates = Array.from({ length: 10 }, (_, i) => ({
-  id: i + 1,
-  src: `/assets/certificados/cert-${String(i + 1).padStart(2, "0")}.png`,
-  alt: `Certificado ${i + 1}`,
-}));
+import { useDataStore } from "../hooks/useDataStore";
+import { defaultCertificates } from "../data";
 
 function getCardsVisible() {
   if (typeof window === "undefined") return 3;
@@ -21,6 +17,10 @@ export function Certificates() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [cardsVisible, setCardsVisible] = useState(getCardsVisible);
+  const { items: certificates } = useDataStore(
+    "certificates",
+    defaultCertificates,
+  );
 
   const isDragging = useRef(false);
   const startX = useRef(0);

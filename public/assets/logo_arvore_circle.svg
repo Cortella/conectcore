@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 200 200" width="200" height="200">
+    <defs>
+        <!-- Gradiente do design system: cyan → indigo → purple -->
+        <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#22D3EE" />
+            <stop offset="50%" stop-color="#6366F1" />
+            <stop offset="100%" stop-color="#A855F7" />
+        </linearGradient>
+
+        <!-- Glow sutil atrás do círculo -->
+        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+
+        <!-- Clip circular para a imagem -->
+        <clipPath id="circleClip">
+            <circle cx="100" cy="100" r="82" />
+        </clipPath>
+    </defs>
+
+    <!-- Círculo com borda gradiente e glow -->
+    <circle cx="100" cy="100" r="90"
+        fill="none"
+        stroke="url(#circleGrad)"
+        stroke-width="3.5"
+        filter="url(#glow)" />
+
+    <!-- Fundo escuro dentro do círculo (combina com o hero) -->
+    <circle cx="100" cy="100" r="87"
+        fill="#0d0d1a"
+        opacity="0.9" />
+
+    <!-- Imagem da árvore centralizada -->
+    <image href="/assets/logo_arvore.png"
+        x="30" y="20"
+        width="140" height="160"
+        clip-path="url(#circleClip)"
+        preserveAspectRatio="xMidYMid meet" />
+</svg>

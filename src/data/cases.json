@@ -1,0 +1,78 @@
+[
+    {
+        "id": "case-01",
+        "tag": "Plataforma SaaS",
+        "title": "FinTrack Pro",
+        "desc": "Plataforma de gestão financeira para fintechs com processamento em tempo real de +1M transações/dia. Redução de 70% no tempo de resposta.",
+        "featured": true,
+        "mockupType": "desktop",
+        "metrics": [
+            {
+                "value": "70%",
+                "label": "Mais rápido"
+            },
+            {
+                "value": "1M+",
+                "label": "Transações/dia"
+            },
+            {
+                "value": "99.9%",
+                "label": "Uptime"
+            }
+        ]
+    },
+    {
+        "id": "case-02",
+        "tag": "App Mobile",
+        "title": "LogiMove",
+        "desc": "App de logística inteligente com rastreamento GPS em tempo real, otimização de rotas via IA e integração com 15+ transportadoras.",
+        "featured": false,
+        "mockupType": "phone",
+        "metrics": [
+            {
+                "value": "500K",
+                "label": "Downloads"
+            },
+            {
+                "value": "4.8★",
+                "label": "App Store"
+            }
+        ]
+    },
+    {
+        "id": "case-03",
+        "tag": "Infraestrutura",
+        "title": "CloudScale",
+        "desc": "Migração e otimização de infraestrutura on-premise para multi-cloud. Redução de 45% nos custos operacionais.",
+        "featured": false,
+        "mockupType": "desktop-dark",
+        "metrics": [
+            {
+                "value": "45%",
+                "label": "Redução custos"
+            },
+            {
+                "value": "3x",
+                "label": "Performance"
+            }
+        ]
+    },
+    {
+        "id": "case-04",
+        "tag": "Integração",
+        "title": "DataBridge",
+        "desc": "Hub de integrações conectando 20+ sistemas corporativos com processamento de eventos em tempo real e zero downtime.",
+        "featured": false,
+        "mockupType": "desktop-nodes",
+        "metrics": [
+            {
+                "value": "20+",
+                "label": "Sistemas"
+            },
+            {
+                "value": "0",
+                "label": "Downtime"
+            }
+        ]
+    }
+]

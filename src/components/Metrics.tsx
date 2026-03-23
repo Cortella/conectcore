@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "./Reveal";
+import { useDataStore } from "../hooks/useDataStore";
+import { defaultMetrics } from "../data";
 
 interface CounterProps {
   target: number;
@@ -67,21 +69,16 @@ function Counter({ target, suffix, label }: CounterProps) {
   );
 }
 
-const metrics = [
-  { target: 150, suffix: "+", label: "Projetos Entregues" },
-  { target: 8, label: "Anos de Mercado" },
-  { target: 50, suffix: "+", label: "Engenheiros" },
-  { target: 99, suffix: "%", label: "Satisfação dos Clientes" },
-];
-
 export function Metrics() {
+  const { items: metrics } = useDataStore("metrics", defaultMetrics);
+
   return (
     <section className="metrics">
       <div className="container">
         <div className="metrics__grid">
           {metrics.map((m) => (
             <Counter
-              key={m.label}
+              key={m.id}
               target={m.target}
               suffix={m.suffix}
               label={m.label}

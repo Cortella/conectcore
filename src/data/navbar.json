@@ -1,0 +1,44 @@
+[
+    {
+        "id": "nav-01",
+        "href": "#home",
+        "label": "Home",
+        "cta": false
+    },
+    {
+        "id": "nav-02",
+        "href": "#about",
+        "label": "Quem Somos",
+        "cta": false
+    },
+    {
+        "id": "nav-03",
+        "href": "#services",
+        "label": "Soluções",
+        "cta": false
+    },
+    {
+        "id": "nav-04",
+        "href": "#cases",
+        "label": "Cases",
+        "cta": false
+    },
+    {
+        "id": "nav-05",
+        "href": "#certificates",
+        "label": "Certificados",
+        "cta": false
+    },
+    {
+        "id": "nav-06",
+        "href": "#blog",
+        "label": "Insights",
+        "cta": false
+    },
+    {
+        "id": "nav-07",
+        "href": "#contact",
+        "label": "Contato",
+        "cta": true
+    }
+]

@@ -1,0 +1,104 @@
+{
+    "brand": {
+        "logoSrc": "/assets/logo_arvore.png",
+        "logoAlt": "Conectcore",
+        "tagline": "Engenharia de Software Inteligente.\nConstruindo o futuro digital."
+    },
+    "columns": [
+        {
+            "id": "footer-col-01",
+            "title": "Soluções",
+            "links": [
+                {
+                    "label": "Engenharia de Software",
+                    "href": "#services"
+                },
+                {
+                    "label": "Produtos & Apps",
+                    "href": "#services"
+                },
+                {
+                    "label": "Infraestrutura",
+                    "href": "#services"
+                },
+                {
+                    "label": "Otimização",
+                    "href": "#services"
+                },
+                {
+                    "label": "Integrações",
+                    "href": "#services"
+                },
+                {
+                    "label": "Consultoria",
+                    "href": "#services"
+                }
+            ]
+        },
+        {
+            "id": "footer-col-02",
+            "title": "Empresa",
+            "links": [
+                {
+                    "label": "Quem Somos",
+                    "href": "#about"
+                },
+                {
+                    "label": "Cases",
+                    "href": "#cases"
+                },
+                {
+                    "label": "Certificados",
+                    "href": "#certificates"
+                },
+                {
+                    "label": "Insights",
+                    "href": "#blog"
+                },
+                {
+                    "label": "Contato",
+                    "href": "#contact"
+                }
+            ]
+        },
+        {
+            "id": "footer-col-03",
+            "title": "Social",
+            "links": [
+                {
+                    "label": "LinkedIn",
+                    "href": "#",
+                    "external": true
+                },
+                {
+                    "label": "GitHub",
+                    "href": "#",
+                    "external": true
+                },
+                {
+                    "label": "Instagram",
+                    "href": "#",
+                    "external": true
+                },
+                {
+                    "label": "X (Twitter)",
+                    "href": "#",
+                    "external": true
+                }
+            ]
+        }
+    ],
+    "legal": {
+        "copyright": "© 2026 Conectcore. Todos os direitos reservados.",
+        "links": [
+            {
+                "label": "Termos de Uso",
+                "href": "#"
+            },
+            {
+                "label": "Política de Privacidade",
+                "href": "#"
+            }
+        ]
+    }
+}

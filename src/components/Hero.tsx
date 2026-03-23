@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Reveal } from "./Reveal";
+import { defaultHero } from "../data";
 
 export function Hero() {
   const gradientRef = useRef<HTMLDivElement>(null);
@@ -65,35 +66,34 @@ export function Hero() {
       </div>
       <div className="hero__content">
         <Reveal>
-          <div className="hero__badge">Engenharia de Software Inteligente</div>
+          <div className="hero__badge">{defaultHero.badge}</div>
         </Reveal>
         <Reveal>
           <h1 className="hero__title">
-            Construímos o
-            <span className="hero__title-accent">futuro digital.</span>
+            {defaultHero.titleLine1}
+            <span className="hero__title-accent">
+              {defaultHero.titleAccent}
+            </span>
           </h1>
         </Reveal>
         <Reveal>
-          <p className="hero__subtitle">
-            Software otimizado. Produtos inteligentes. Infraestrutura que
-            escala. Transformamos ideias complexas em soluções elegantes.
-          </p>
+          <p className="hero__subtitle">{defaultHero.subtitle}</p>
         </Reveal>
         <Reveal>
           <div className="hero__actions">
             <a
-              href="#services"
+              href={defaultHero.primaryAction.href}
               className="btn btn--primary"
-              onClick={(e) => scrollTo(e, "#services")}
+              onClick={(e) => scrollTo(e, defaultHero.primaryAction.href)}
             >
-              Nossas Soluções
+              {defaultHero.primaryAction.label}
             </a>
             <a
-              href="#contact"
+              href={defaultHero.secondaryAction.href}
               className="btn btn--ghost"
-              onClick={(e) => scrollTo(e, "#contact")}
+              onClick={(e) => scrollTo(e, defaultHero.secondaryAction.href)}
             >
-              Fale Conosco
+              {defaultHero.secondaryAction.label}
             </a>
           </div>
         </Reveal>

@@ -1,37 +1,10 @@
 import { Reveal } from "./Reveal";
-
-const articles = [
-  {
-    day: "08",
-    month: "MAR",
-    category: "Engenharia",
-    title: "Como Reduzimos a Latência em 80% com Event-Driven Architecture",
-    desc: "Um deep dive na migração de uma arquitetura monolítica para event-driven, e os ganhos reais de performance.",
-  },
-  {
-    day: "02",
-    month: "MAR",
-    category: "Infraestrutura",
-    title: "O Guia Definitivo para Multi-Cloud em 2026",
-    desc: "Estratégias práticas para otimizar custos e performance distribuindo workloads entre AWS, Azure e GCP.",
-  },
-  {
-    day: "24",
-    month: "FEV",
-    category: "Produto",
-    title: "Design Systems que Escalam: Nossa Abordagem",
-    desc: "Como construímos design systems modulares que aceleram o desenvolvimento e mantêm a consistência.",
-  },
-  {
-    day: "18",
-    month: "FEV",
-    category: "DevOps",
-    title: "CI/CD Pipeline Zero-Downtime: Da Teoria à Prática",
-    desc: "Implementando deploys contínuos com zero downtime usando blue-green deployments e feature flags.",
-  },
-];
+import { useDataStore } from "../hooks/useDataStore";
+import { defaultBlog } from "../data";
 
 export function Blog() {
+  const { items: articles } = useDataStore("blog", defaultBlog);
+
   return (
     <section className="blog" id="blog">
       <div className="container">
@@ -45,7 +18,7 @@ export function Blog() {
         </Reveal>
         <div className="blog__grid">
           {articles.map((a) => (
-            <Reveal tag="article" className="blog-card" key={a.title}>
+            <Reveal tag="article" className="blog-card" key={a.id}>
               <div className="blog-card__date">
                 <span className="day">{a.day}</span>
                 <span className="month">{a.month}</span>

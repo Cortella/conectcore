@@ -168,6 +168,44 @@ a {
   object-fit: contain;
 }
 
+/* ── Logo com círculo gradiente ── */
+.logo-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  padding: 2.5px;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.3),
+              0 0 32px rgba(34, 211, 238, 0.12);
+  transition: box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.logo-circle:hover {
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.45),
+              0 0 48px rgba(34, 211, 238, 0.2);
+}
+
+.logo-circle__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #0d0d1a;
+}
+
+.logo-circle__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
 .logo-icon {
   display: inline-flex;
   align-items: center;
@@ -1309,8 +1347,9 @@ a {
   margin-bottom: 16px;
 }
 
-.footer__brand .logo-img {
-  height: 36px;
+.footer__brand .logo-circle {
+  width: 44px;
+  height: 44px;
 }
 
 .footer__brand p {

@@ -1,0 +1,20 @@
+[
+    {
+        "id": "value-01",
+        "icon": "◎",
+        "title": "Missão",
+        "text": "Projetar soluções de engenharia — do software ao hardware — que resolvem problemas reais e aceleram o crescimento dos nossos clientes."
+    },
+    {
+        "id": "value-02",
+        "icon": "◇",
+        "title": "Visão",
+        "text": "Ser referência global em engenharia de software, reconhecida pela excelência e impacto."
+    },
+    {
+        "id": "value-03",
+        "icon": "△",
+        "title": "Valores",
+        "text": "Excelência técnica, transparência radical, inovação contínua e compromisso com resultados."
+    }
+]

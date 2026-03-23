@@ -1,16 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
-
-const links = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "Quem Somos" },
-  { href: "#services", label: "Soluções" },
-  { href: "#cases", label: "Cases" },
-  { href: "#certificates", label: "Certificados" },
-  { href: "#blog", label: "Insights" },
-  { href: "#contact", label: "Contato", cta: true },
-];
+import { useDataStore } from "../hooks/useDataStore";
+import { defaultNavLinks } from "../data";
 
 export function Navbar() {
+  const { items: links } = useDataStore("navLinks", defaultNavLinks);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -62,11 +55,13 @@ export function Navbar() {
     <nav className={`nav${isScrolled ? " nav--scrolled" : ""}`} id="nav">
       <div className="nav__inner">
         <a href="#" className="nav__logo">
-          <img
-            src="/assets/logo_arvore.png"
-            alt="Conectcore"
-            className="logo-img"
-          />
+          <span className="logo-circle">
+            <img
+              src="/assets/logo_arvore.png"
+              alt="Conectcore"
+              className="logo-circle__img"
+            />
+          </span>
         </a>
         <div className={`nav__links${isMobileOpen ? " open" : ""}`}>
           {links.map((link) => (
