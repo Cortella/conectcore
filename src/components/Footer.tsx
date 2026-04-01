@@ -20,13 +20,11 @@ export function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <a href="#" className="nav__logo">
-              <span className="logo-circle">
-                <img
-                  src={defaultFooter.brand.logoSrc}
-                  alt={defaultFooter.brand.logoAlt}
-                  className="logo-circle__img"
-                />
-              </span>
+              <img
+                src={defaultFooter.brand.logoSrc}
+                alt={defaultFooter.brand.logoAlt}
+                className="nav__logo-img"
+              />
             </a>
             <p>
               {defaultFooter.brand.tagline.split("\n").map((line, i) => (
@@ -50,12 +48,16 @@ export function Footer() {
                   >
                     {link.label}
                   </a>
-                ) : (
+                ) : link.href.startsWith("#") ? (
                   <a
                     key={link.label}
                     href={link.href}
                     onClick={(e) => scrollTo(e, link.href)}
                   >
+                    {link.label}
+                  </a>
+                ) : (
+                  <a key={link.label} href={link.href}>
                     {link.label}
                   </a>
                 ),

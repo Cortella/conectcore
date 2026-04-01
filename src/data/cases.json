@@ -1,77 +1,113 @@
 [
     {
         "id": "case-01",
-        "tag": "Plataforma SaaS",
-        "title": "FinTrack Pro",
-        "desc": "Plataforma de gestão financeira para fintechs com processamento em tempo real de +1M transações/dia. Redução de 70% no tempo de resposta.",
+        "tag": "Gateway de Pagamentos",
+        "title": "PayCore Gateway",
+        "desc": "Gateway de pagamento online com processamento de transações via Pix, cartão de crédito e boleto. Integração com adquirentes, antifraude em tempo real e dashboard completo para merchants.",
         "featured": true,
         "mockupType": "desktop",
         "metrics": [
             {
-                "value": "70%",
-                "label": "Mais rápido"
+                "value": "2M+",
+                "label": "Transações/mês"
             },
             {
-                "value": "1M+",
-                "label": "Transações/dia"
-            },
-            {
-                "value": "99.9%",
+                "value": "99.99%",
                 "label": "Uptime"
+            },
+            {
+                "value": "<200ms",
+                "label": "Latência"
             }
         ]
     },
     {
         "id": "case-02",
-        "tag": "App Mobile",
-        "title": "LogiMove",
-        "desc": "App de logística inteligente com rastreamento GPS em tempo real, otimização de rotas via IA e integração com 15+ transportadoras.",
+        "tag": "Inteligência Artificial",
+        "title": "AgentFlow AI",
+        "desc": "Plataforma de agentes inteligentes com fine-tuning de LLMs, construção de chatbots customizados e pipelines RAG. Suporte a GPT-4, Claude, Llama e modelos open-source.",
         "featured": false,
-        "mockupType": "phone",
+        "mockupType": "desktop-dark",
         "metrics": [
             {
-                "value": "500K",
-                "label": "Downloads"
+                "value": "15+",
+                "label": "Modelos LLM"
             },
             {
-                "value": "4.8★",
-                "label": "App Store"
+                "value": "92%",
+                "label": "Precisão"
             }
         ]
     },
     {
         "id": "case-03",
-        "tag": "Infraestrutura",
-        "title": "CloudScale",
-        "desc": "Migração e otimização de infraestrutura on-premise para multi-cloud. Redução de 45% nos custos operacionais.",
+        "tag": "Apps Mobile",
+        "title": "MultiApp Suite",
+        "desc": "Desenvolvimento e publicação de apps nativos e cross-platform para Google Play e Apple App Store. Pipeline CI/CD completo, from code to store, com monitoramento de crashes e analytics.",
         "featured": false,
-        "mockupType": "desktop-dark",
+        "mockupType": "phone",
         "metrics": [
             {
-                "value": "45%",
-                "label": "Redução custos"
+                "value": "12",
+                "label": "Apps publicados"
             },
             {
-                "value": "3x",
-                "label": "Performance"
+                "value": "4.7★",
+                "label": "Avaliação média"
             }
         ]
     },
     {
         "id": "case-04",
-        "tag": "Integração",
-        "title": "DataBridge",
-        "desc": "Hub de integrações conectando 20+ sistemas corporativos com processamento de eventos em tempo real e zero downtime.",
+        "tag": "IoT & Machine Learning",
+        "title": "SensorMind",
+        "desc": "Plataforma IoT com coleta de dados de sensores industriais, modelos de machine learning para manutenção preditiva e dashboards em tempo real. Integração com MQTT, AWS IoT Core e TensorFlow.",
         "featured": false,
         "mockupType": "desktop-nodes",
         "metrics": [
             {
-                "value": "20+",
-                "label": "Sistemas"
+                "value": "50K+",
+                "label": "Dispositivos"
             },
             {
-                "value": "0",
-                "label": "Downtime"
+                "value": "40%",
+                "label": "Redução falhas"
+            }
+        ]
+    },
+    {
+        "id": "case-05",
+        "tag": "Cloud & DevOps",
+        "title": "CloudPipe Infra",
+        "desc": "Automação de infraestrutura cloud com Terraform, Kubernetes e GitOps. Pipelines CI/CD multi-ambiente, monitoramento com Prometheus/Grafana e auto-scaling inteligente para aplicações de alta demanda.",
+        "featured": false,
+        "mockupType": "desktop-dark",
+        "metrics": [
+            {
+                "value": "70%",
+                "label": "Redução custo"
+            },
+            {
+                "value": "3min",
+                "label": "Deploy médio"
+            }
+        ]
+    },
+    {
+        "id": "case-06",
+        "tag": "Chatbot & NLP",
+        "title": "TalkBot Pro",
+        "desc": "Plataforma de chatbots corporativos com processamento de linguagem natural, integração omnichannel (WhatsApp, Telegram, webchat) e analytics conversacional. Escalável para milhões de mensagens diárias.",
+        "featured": false,
+        "mockupType": "phone",
+        "metrics": [
+            {
+                "value": "5M+",
+                "label": "Mensagens/mês"
+            },
+            {
+                "value": "85%",
+                "label": "Resolução auto"
             }
         ]
     }

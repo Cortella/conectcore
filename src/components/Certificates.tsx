@@ -146,13 +146,18 @@ export function Certificates() {
               onTouchEnd={handleTouchEnd}
             >
               {certificates.map((cert) => (
-                <div className="cert-card" key={cert.id}>
-                  <img
-                    src={cert.src}
-                    alt={cert.alt}
-                    loading="lazy"
-                    onClick={() => setLightboxSrc(cert.src)}
-                  />
+                <div
+                  className="cert-card"
+                  key={cert.id}
+                  onClick={() => setLightboxSrc(cert.src)}
+                >
+                  <div className="cert-card__logo">
+                    <img src={cert.logo} alt={cert.org} />
+                  </div>
+                  <div className="cert-card__info">
+                    <span className="cert-card__org">{cert.org}</span>
+                    <h3 className="cert-card__title">{cert.title}</h3>
+                  </div>
                 </div>
               ))}
             </div>

@@ -1,6 +1,6 @@
 {
     "brand": {
-        "logoSrc": "/assets/logo_arvore.png",
+        "logoSrc": "/assets/conectcore_logo01.png",
         "logoAlt": "Conectcore",
         "tagline": "Engenharia de Software Inteligente.\nConstruindo o futuro digital."
     },
@@ -97,7 +97,8 @@
             },
             {
                 "label": "Política de Privacidade",
-                "href": "#"
+                "href": "/privacidade",
+                "external": false
             }
         ]
     }

@@ -52,6 +52,9 @@ export interface BlogArticle extends BaseEntity {
 export interface Certificate extends BaseEntity {
   src: string;
   alt: string;
+  logo: string;
+  title: string;
+  org: string;
 }
 
 /* ── Metrics ──────────────────────────────────────────────── */
@@ -148,6 +151,13 @@ export interface CtaData {
   subtitle: string;
   primaryAction: HeroAction;
   whatsappAction: HeroAction;
+}
+
+/* ── Partners ─────────────────────────────────────────────── */
+
+export interface Partner extends BaseEntity {
+  name: string;
+  logo: string;
 }
 
 /* ── Data Store ───────────────────────────────────────────── */

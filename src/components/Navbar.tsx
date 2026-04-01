@@ -55,27 +55,35 @@ export function Navbar() {
     <nav className={`nav${isScrolled ? " nav--scrolled" : ""}`} id="nav">
       <div className="nav__inner">
         <a href="#" className="nav__logo">
-          <span className="logo-circle">
-            <img
-              src="/assets/logo_arvore.png"
-              alt="Conectcore"
-              className="logo-circle__img"
-            />
-          </span>
+          <img
+            src="/assets/conectcore_logo02.png"
+            alt="Conectcore"
+            className="nav__logo-img"
+          />
         </a>
         <div className={`nav__links${isMobileOpen ? " open" : ""}`}>
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`nav__link${link.cta ? " nav__link--cta" : ""}${
-                activeSection === link.href.slice(1) ? " active" : ""
-              }`}
-              onClick={(e) => scrollToSection(e, link.href)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) =>
+            link.href.startsWith("#") ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`nav__link${link.cta ? " nav__link--cta" : ""}${
+                  activeSection === link.href.slice(1) ? " active" : ""
+                }`}
+                onClick={(e) => scrollToSection(e, link.href)}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`nav__link${link.cta ? " nav__link--cta" : ""}`}
+              >
+                {link.label}
+              </a>
+            ),
+          )}
         </div>
         <button
           className={`nav__toggle${isMobileOpen ? " active" : ""}`}

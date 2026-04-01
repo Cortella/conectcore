@@ -2,51 +2,81 @@
     {
         "id": "cert-01",
         "src": "/assets/certificados/cert-01.png",
-        "alt": "Certificado 1"
+        "alt": "AWS Solutions Architect — Amazon Web Services",
+        "logo": "/assets/partners/aws.svg",
+        "title": "Solutions Architect",
+        "org": "Amazon Web Services"
     },
     {
         "id": "cert-02",
         "src": "/assets/certificados/cert-02.png",
-        "alt": "Certificado 2"
+        "alt": "Google Cloud Professional Cloud Architect",
+        "logo": "/assets/partners/google-cloud.svg",
+        "title": "Cloud Architect",
+        "org": "Google Cloud"
     },
     {
         "id": "cert-03",
         "src": "/assets/certificados/cert-03.png",
-        "alt": "Certificado 3"
+        "alt": "Microsoft Azure DevOps Engineer Expert",
+        "logo": "/assets/partners/azure.svg",
+        "title": "DevOps Engineer Expert",
+        "org": "Microsoft Azure"
     },
     {
         "id": "cert-04",
         "src": "/assets/certificados/cert-04.png",
-        "alt": "Certificado 4"
+        "alt": "Kubernetes Administrator (CKA) — CNCF",
+        "logo": "/assets/partners/kubernetes.svg",
+        "title": "Certified Kubernetes Admin",
+        "org": "CNCF"
     },
     {
         "id": "cert-05",
         "src": "/assets/certificados/cert-05.png",
-        "alt": "Certificado 5"
+        "alt": "Docker Certified Associate",
+        "logo": "/assets/partners/docker.svg",
+        "title": "Certified Associate",
+        "org": "Docker"
     },
     {
         "id": "cert-06",
         "src": "/assets/certificados/cert-06.png",
-        "alt": "Certificado 6"
+        "alt": "TensorFlow Developer Certificate — Google",
+        "logo": "/assets/partners/tensorflow.svg",
+        "title": "Developer Certificate",
+        "org": "TensorFlow"
     },
     {
         "id": "cert-07",
         "src": "/assets/certificados/cert-07.png",
-        "alt": "Certificado 7"
+        "alt": "AWS Machine Learning Specialty",
+        "logo": "/assets/partners/aws.svg",
+        "title": "Machine Learning Specialty",
+        "org": "Amazon Web Services"
     },
     {
         "id": "cert-08",
         "src": "/assets/certificados/cert-08.png",
-        "alt": "Certificado 8"
+        "alt": "Scrum Master (PSM I) — Scrum.org",
+        "logo": "/assets/partners/scrum.svg",
+        "title": "Professional Scrum Master",
+        "org": "Scrum.org"
     },
     {
         "id": "cert-09",
         "src": "/assets/certificados/cert-09.png",
-        "alt": "Certificado 9"
+        "alt": "ISO 27001 Lead Implementer — Segurança da Informação",
+        "logo": "/assets/partners/iso.svg",
+        "title": "ISO 27001 Lead Implementer",
+        "org": "ISO / IEC"
     },
     {
         "id": "cert-10",
         "src": "/assets/certificados/cert-10.png",
-        "alt": "Certificado 10"
+        "alt": "Meta Certified Developer — React & React Native",
+        "logo": "/assets/partners/meta.svg",
+        "title": "Certified React Developer",
+        "org": "Meta"
     }
 ]

@@ -15,6 +15,7 @@ import type {
   ContactData,
   FooterData,
   CtaData,
+  Partner,
 } from "../types";
 
 import servicesJson from "./services.json";
@@ -28,6 +29,7 @@ import heroJson from "./hero.json";
 import contactJson from "./contact.json";
 import footerJson from "./footer.json";
 import ctaJson from "./cta.json";
+import partnersJson from "./partners.json";
 
 export const defaultServices: Service[] = servicesJson;
 export const defaultCases: CaseStudy[] = casesJson as CaseStudy[];
@@ -40,3 +42,4 @@ export const defaultHero: HeroData = heroJson;
 export const defaultContact: ContactData = contactJson as ContactData;
 export const defaultFooter: FooterData = footerJson as FooterData;
 export const defaultCta: CtaData = ctaJson;
+export const defaultPartners: Partner[] = partnersJson;

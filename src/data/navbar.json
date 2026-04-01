@@ -37,6 +37,12 @@
     },
     {
         "id": "nav-07",
+        "href": "/privacidade",
+        "label": "Privacidade",
+        "cta": false
+    },
+    {
+        "id": "nav-08",
         "href": "#contact",
         "label": "Contato",
         "cta": true

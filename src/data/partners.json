@@ -1,0 +1,16 @@
+[
+  { "id": "partner-01", "name": "Amazon Web Services", "logo": "/assets/partners/aws.svg" },
+  { "id": "partner-02", "name": "Google Cloud", "logo": "/assets/partners/google-cloud.svg" },
+  { "id": "partner-03", "name": "Microsoft Azure", "logo": "/assets/partners/azure.svg" },
+  { "id": "partner-04", "name": "Vercel", "logo": "/assets/partners/vercel.svg" },
+  { "id": "partner-05", "name": "Docker", "logo": "/assets/partners/docker.svg" },
+  { "id": "partner-06", "name": "GitHub", "logo": "/assets/partners/github.svg" },
+  { "id": "partner-07", "name": "OpenAI", "logo": "/assets/partners/openai.svg" },
+  { "id": "partner-08", "name": "Stripe", "logo": "/assets/partners/stripe.svg" },
+  { "id": "partner-09", "name": "Cloudflare", "logo": "/assets/partners/cloudflare.svg" },
+  { "id": "partner-10", "name": "DigitalOcean", "logo": "/assets/partners/digitalocean.svg" },
+  { "id": "partner-11", "name": "MongoDB", "logo": "/assets/partners/mongodb.svg" },
+  { "id": "partner-12", "name": "PostgreSQL", "logo": "/assets/partners/postgresql.svg" },
+  { "id": "partner-13", "name": "Redis", "logo": "/assets/partners/redis.svg" },
+  { "id": "partner-14", "name": "Figma", "logo": "/assets/partners/figma.svg" }
+]
