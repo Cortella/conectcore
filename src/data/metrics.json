@@ -1,7 +1,7 @@
 [
     {
         "id": "metric-01",
-        "target": 150,
+        "target": 28,
         "suffix": "+",
         "label": "Projetos Entregues"
     },
@@ -12,14 +12,14 @@
     },
     {
         "id": "metric-03",
-        "target": 50,
+        "target": 15,
         "suffix": "+",
-        "label": "Engenheiros"
+        "label": "Clientes Atendidos"
     },
     {
         "id": "metric-04",
         "target": 99,
         "suffix": "%",
-        "label": "Satisfação dos Clientes"
+        "label": "Disponibilidade Média"
     }
 ]

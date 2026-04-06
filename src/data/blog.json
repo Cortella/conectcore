@@ -1,11 +1,63 @@
 [
     {
         "id": "blog-01",
-        "day": "08",
-        "month": "MAR",
+        "day": "02",
+        "month": "ABR",
         "category": "Engenharia",
-        "title": "Como Reduzimos a Latência em 80% com Event-Driven Architecture",
-        "desc": "Um deep dive na migração de uma arquitetura monolítica para event-driven, e os ganhos reais de performance."
+        "title": "Quando Microserviços Viram o Problema: Cache, Contenção e Race Conditions em Produção",
+        "desc": "Um relato real sobre os atritos que surgem quando microserviços saem da teoria — e como resolvemos problemas de de-para, latência e race conditions no cache com Redis.",
+        "slug": "microservicos-cache-race-conditions",
+        "readTime": "5 min",
+        "sections": [
+            {
+                "heading": "O cenário: microserviços na teoria vs. na prática",
+                "body": [
+                    "No início do projeto, a arquitetura de microserviços parecia ideal: serviços desacoplados, independentes e escaláveis. O diagrama ficava bonito no whiteboard. Mas na prática, conforme o sistema crescia, começaram a surgir atritos que nenhuma documentação preparou a equipe para enfrentar — principalmente na comunicação entre os serviços."
+                ]
+            },
+            {
+                "heading": "O primeiro atrito: excesso de de-para entre serviços",
+                "body": [
+                    "Um dos primeiros problemas foi o excesso de de-para. Cada serviço evoluía de forma independente, com seus próprios modelos e contratos. Isso fez com que a equipe tivesse que constantemente traduzir dados de um contexto para outro: campos com nomes diferentes representando a mesma coisa, enums incompatíveis e pequenas variações de regra de negócio que se acumulavam dia após dia.",
+                    "Na prática, isso aumentava o acoplamento indireto, elevava o custo de manutenção e tornava qualquer mudança mais arriscada — porque impactava múltiplos pontos da cadeia de uma só vez."
+                ]
+            },
+            {
+                "heading": "O gargalo invisível: latência entre microserviços",
+                "body": [
+                    "Ao mesmo tempo, enfrentamos um problema ainda mais sensível: latência. Para montar respostas completas, o orquestrador precisava consumir múltiplas fontes — bancos diferentes, APIs internas e externas — gerando uma sequência de chamadas encadeadas.",
+                    "Esse fluxo aumentava o tempo de resposta e criava um efeito cascata: qualquer instabilidade em um serviço impactava diretamente o restante do sistema. O resultado era um backend mais lento, mais frágil e mais difícil de escalar de forma eficiente."
+                ]
+            },
+            {
+                "heading": "A primeira solução: Redis como cache compartilhado",
+                "body": [
+                    "Para resolver, a equipe adotou o Redis como cache compartilhado entre os serviços. Informações frequentemente acessadas e com baixa volatilidade passaram a ser centralizadas ali. O impacto foi imediato: redução significativa na quantidade de chamadas entre serviços e melhora expressiva no tempo de resposta.",
+                    "A estratégia funcionou bem no início. Mas com o crescimento da aplicação, surgiu um problema que ninguém havia antecipado."
+                ]
+            },
+            {
+                "heading": "O problema que ninguém previu: race conditions no cache",
+                "body": [
+                    "Como múltiplos serviços acessavam e atualizavam os mesmos dados no Redis ao mesmo tempo, começaram a aparecer situações de contenção e inconsistência em cenários concorrentes — as famosas race conditions.",
+                    "Um serviço sobrescrevia dados recém-atualizados por outro. Leituras aconteciam no meio de uma atualização incompleta. Estados intermediários eram cacheados sem nenhuma garantia de consistência. Isso gerava comportamentos imprevisíveis, principalmente em fluxos críticos como processamento de transações."
+                ]
+            },
+            {
+                "heading": "A solução definitiva: elevando o nível da arquitetura",
+                "body": [
+                    "A solução exigiu subir o nível da arquitetura. Implementamos locks distribuídos no Redis para controlar escrita concorrente em dados críticos. Passamos a usar versionamento de dados com controle de versão simples, evitando sobrescrita indevida.",
+                    "Em operações sensíveis, adotamos estratégias idempotentes — garantindo que múltiplas execuções não corrompessem o estado. E reduzimos o uso de cache em fluxos altamente transacionais, mantendo o Redis focado em leitura otimizada, onde ele realmente brilha."
+                ]
+            },
+            {
+                "heading": "O aprendizado",
+                "body": [
+                    "No final, o sistema evoluiu de uma arquitetura apenas performática para uma arquitetura consistente sob carga real. O caminho não foi linear — cada solução trouxe um novo desafio, e foi exatamente isso que forçou a equipe a amadurecer.",
+                    "Esse tipo de ajuste é o que transforma microserviços de teoria em algo que aguenta produção de verdade. E se tem uma lição que fica: arquitetura boa não é a que funciona no diagrama — é a que sobrevive ao tráfego real."
+                ]
+            }
+        ]
     },
     {
         "id": "blog-02",
@@ -13,7 +65,48 @@
         "month": "MAR",
         "category": "Infraestrutura",
         "title": "O Guia Definitivo para Multi-Cloud em 2026",
-        "desc": "Estratégias práticas para otimizar custos e performance distribuindo workloads entre AWS, Azure e GCP."
+        "desc": "Estratégias práticas para otimizar custos e performance distribuindo workloads entre AWS, Azure e GCP.",
+        "slug": "guia-multi-cloud-2026",
+        "readTime": "7 min",
+        "sections": [
+            {
+                "heading": "Por que multi-cloud (e quando não vale a pena)",
+                "body": [
+                    "Multi-cloud virou buzzword, mas a realidade é mais nuançada. Nem toda empresa precisa distribuir workloads entre providers. Se você roda tudo em uma região da AWS e está satisfeito com custo e disponibilidade, adicionar Azure só adiciona complexidade.",
+                    "Multi-cloud faz sentido em cenários específicos: quando um provider tem um serviço significativamente melhor para determinado workload (ex.: GCP para BigQuery, Azure para integração com ecossistema Microsoft), quando compliance exige redundância geográfica entre providers, ou quando você quer evitar vendor lock-in em componentes críticos."
+                ]
+            },
+            {
+                "heading": "Arquitetura de referência",
+                "body": [
+                    "A abordagem que usamos com mais frequência é o modelo workload-based: cada provider recebe os workloads onde é mais forte. Não tentamos replicar a mesma aplicação em dois clouds — isso é caro e frágil.",
+                    "Um padrão comum: aplicação principal em AWS (ECS/EKS para compute, RDS para banco, S3 para storage), pipelines de dados em GCP (BigQuery + Dataflow), e serviços de identidade em Azure (Entra ID quando o cliente já usa Microsoft 365).",
+                    "A camada de rede é crítica. Usamos Terraform para provisionar VPN links ou interconnects entre os providers e DNS inteligente (Route 53 com health checks) para roteamento entre ambientes."
+                ]
+            },
+            {
+                "heading": "Otimização de custos",
+                "body": [
+                    "O maior ganho de custo em multi-cloud não vem de comparar preços de VM — vem de usar serviços managed de cada provider onde eles são mais eficientes. BigQuery, por exemplo, com modelo serverless por query, pode ser dramaticamente mais barato que rodar um Redshift dedicado para analytics esporádicos.",
+                    "Committed use discounts e savings plans são fundamentais. Reservamos capacidade no provider primário (em geral AWS) para workloads estáveis e usamos spot/preemptible instances nos secundários para batch processing.",
+                    "Monitoramos custos com uma combinação de ferramentas nativas (AWS Cost Explorer, GCP Billing) unificadas em um dashboard Grafana. O alerta de anomalia de custo já nos salvou de surpras na fatura mais de uma vez."
+                ]
+            },
+            {
+                "heading": "Observabilidade unificada",
+                "body": [
+                    "Ter logs, métricas e traces espalhados entre três consoles é impraticável. Centralizamos tudo com OpenTelemetry como standard de instrumentação, exportando para um backend único — tipicamente Grafana Cloud ou Datadog.",
+                    "O investimento em observabilidade unificada é o que viabiliza multi-cloud na prática. Sem isso, troubleshooting vira pesadelo."
+                ]
+            },
+            {
+                "heading": "Considerações finais",
+                "body": [
+                    "Multi-cloud não é objetivo — é ferramenta. O objetivo é entregar o melhor serviço possível com custo controlado. Se um único cloud resolve, use um único cloud. Se a distribuição inteligente de workloads traz vantagem concreta, aí sim vale o investimento em multi-cloud.",
+                    "O segredo é infraestrutura como código (Terraform/OpenTofu), observabilidade centralizada e uma equipe que entenda as peculiaridades de cada provider."
+                ]
+            }
+        ]
     },
     {
         "id": "blog-03",
@@ -21,7 +114,42 @@
         "month": "FEV",
         "category": "Produto",
         "title": "Design Systems que Escalam: Nossa Abordagem",
-        "desc": "Como construímos design systems modulares que aceleram o desenvolvimento e mantêm a consistência."
+        "desc": "Como construímos design systems modulares que aceleram o desenvolvimento e mantêm a consistência.",
+        "slug": "design-systems-que-escalam",
+        "readTime": "5 min",
+        "sections": [
+            {
+                "heading": "O custo invisível da inconsistência",
+                "body": [
+                    "Todo projeto começa organizado. Após seis meses com múltiplos desenvolvedores, você tem três variações de botão, dois padrões de modal e estilos de tipografia que ninguém lembra de onde vieram.",
+                    "O problema não é estético — é de velocidade. Cada componente reimplementado é tempo que poderia ser gasto em lógica de negócio. Em um de nossos projetos, estimamos que a equipe gastava cerca de 20% do tempo de frontend recriando variações de componentes que já existiam em outra parte do código."
+                ]
+            },
+            {
+                "heading": "Fundação: design tokens",
+                "body": [
+                    "Tudo começa com tokens. Cores, espaçamentos, tipografia, border-radius, sombras — todos definidos como variáveis semânticas em um arquivo centralizado. Não usamos valores mágicos no código.",
+                    "Os tokens são organizados em três camadas: primitivos (gray-500, blue-600), semânticos (text-primary, bg-surface, border-subtle) e componentes (button-bg, card-shadow). Isso permite trocar temas inteiros alterando apenas a camada primitiva.",
+                    "Usamos Style Dictionary para gerar tokens em múltiplos formatos: CSS custom properties para web, JSON para React Native, XML para Android nativo. Uma única fonte de verdade."
+                ]
+            },
+            {
+                "heading": "Componentes: atomic design pragmático",
+                "body": [
+                    "Seguimos Atomic Design como referência, mas sem rigidez. Na prática, dividimos em três níveis: primitivos (Button, Input, Badge), compostos (SearchBar, FormField, Card) e patterns (PageHeader, DataTable, EmptyState).",
+                    "Cada componente tem uma API clara com props tipadas (TypeScript obrigatório), variantes definidas por enum, e stories no Storybook documentando cada estado. Se não está no Storybook, não existe.",
+                    "Um pattern que funciona bem: componentes de layout (Stack, Grid, Flex) com props responsivas. Em vez de escrever media queries manualmente, o dev usa <Stack gap={{ base: 16, md: 24 }}> e o sistema cuida do resto."
+                ]
+            },
+            {
+                "heading": "Versionamento e adoção",
+                "body": [
+                    "Publicamos o design system como pacote npm privado com versionamento semântico. Breaking changes só em major versions, com guia de migração.",
+                    "A adoção é o maior desafio. Dois fatores que ajudam: lint rules customizadas que alertam quando alguém usa um valor hardcoded ao invés de um token, e onboarding com pair programming na primeira feature usando o sistema.",
+                    "O resultado concreto: o tempo médio para construir uma tela nova caiu cerca de 40% após a estabilização do design system. Mais importante, revisões de PR de frontend ficaram mais rápidas porque o código é previsível."
+                ]
+            }
+        ]
     },
     {
         "id": "blog-04",
@@ -29,6 +157,48 @@
         "month": "FEV",
         "category": "DevOps",
         "title": "CI/CD Pipeline Zero-Downtime: Da Teoria à Prática",
-        "desc": "Implementando deploys contínuos com zero downtime usando blue-green deployments e feature flags."
+        "desc": "Implementando deploys contínuos com zero downtime usando blue-green deployments e feature flags.",
+        "slug": "cicd-pipeline-zero-downtime",
+        "readTime": "6 min",
+        "sections": [
+            {
+                "heading": "O problema com deploys tradicionais",
+                "body": [
+                    "Deploy com janela de manutenção ainda é realidade em muitas empresas. O padrão clássico: agendar para domingo às 3h da manhã, derrubar o serviço, atualizar, rezar, subir de novo. Funcionou por anos, mas não escala quando você precisa entregar features semanalmente.",
+                    "O impacto vai além da disponibilidade. Deploys arriscados geram medo de deploy, que gera batches maiores, que gera deploys ainda mais arriscados. É um ciclo que precisa ser quebrado."
+                ]
+            },
+            {
+                "heading": "Blue-green deployment na prática",
+                "body": [
+                    "O conceito é simples: você mantém dois ambientes idênticos (blue e green). O tráfego aponta para um deles (blue). Quando vai fazer deploy, atualiza o outro (green), valida, e redireciona o tráfego. Se algo der errado, volta para o blue em segundos.",
+                    "Na implementação com AWS, usamos ECS com dois target groups no ALB. O pipeline atualiza o target group inativo, roda health checks e smoke tests automatizados, e só então o ALB faz o switch. Todo o processo leva entre 3 e 5 minutos.",
+                    "O custo extra é moderado: você paga por dois ambientes, mas apenas durante o deploy (o green pode ser escalado para zero após o switch). Com Fargate Spot, o overhead fica aceitável."
+                ]
+            },
+            {
+                "heading": "Feature flags como rede de segurança",
+                "body": [
+                    "Blue-green resolve o deploy, mas não resolve o release. São coisas diferentes: deploy é colocar código no servidor; release é ativar a funcionalidade para o usuário.",
+                    "Usamos feature flags para separar os dois. O código novo vai para produção desligado. Ativamos gradualmente: primeiro para a equipe interna, depois para um percentual pequeno de usuários, e finalmente para todos.",
+                    "A stack é direta: um serviço de feature flags (LaunchDarkly ou Unleash self-hosted) com SDK no frontend e backend. As flags têm owner, data de expiração e regras de cleanup. Flag sem dono é flag que vira tech debt."
+                ]
+            },
+            {
+                "heading": "Pipeline completo: do commit à produção",
+                "body": [
+                    "O pipeline que usamos com mais frequência segue esse fluxo: push → lint + type check → testes unitários → build da imagem Docker → push para ECR → deploy no ambiente green → smoke tests automatizados → switch de tráfego → monitoramento pós-deploy (5 min) → done.",
+                    "Cada etapa tem critérios de rollback automatizado. Se os smoke tests falham, o pipeline reverte sem intervenção humana. Se as métricas de erro sobem acima do threshold nos 5 minutos pós-deploy, rollback automático.",
+                    "O tempo total do push ao tráfego em produção fica em torno de 8 a 12 minutos. Fazemos em média vários deploys por semana sem impacto para os usuários."
+                ]
+            },
+            {
+                "heading": "O que aprendemos",
+                "body": [
+                    "Zero-downtime não é sobre ferramentas — é sobre cultura. O pipeline mais sofisticado do mundo não funciona se a equipe não escreve testes, não monitora métricas e não revisa código.",
+                    "Comece com o básico: testes automatizados e um pipeline que roda a cada push. Depois adicione blue-green. Depois feature flags. Cada camada reduz o risco do deploy e aumenta a confiança da equipe para entregar mais rápido."
+                ]
+            }
+        ]
     }
 ]

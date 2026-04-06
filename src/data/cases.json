@@ -2,13 +2,13 @@
     {
         "id": "case-01",
         "tag": "Gateway de Pagamentos",
-        "title": "PayCore Gateway",
-        "desc": "Gateway de pagamento online com processamento de transações via Pix, cartão de crédito e boleto. Integração com adquirentes, antifraude em tempo real e dashboard completo para merchants.",
+        "title": "Finance Gateway",
+        "desc": "Gateway de pagamento online white-label com processamento de transações via Pix, cartão de crédito e boleto. Integração com adquirentes, antifraude em tempo real e dashboard completo para merchants.",
         "featured": true,
         "mockupType": "desktop",
         "metrics": [
             {
-                "value": "2M+",
+                "value": "1M+",
                 "label": "Transações/mês"
             },
             {
@@ -16,7 +16,7 @@
                 "label": "Uptime"
             },
             {
-                "value": "<200ms",
+                "value": "<300ms",
                 "label": "Latência"
             }
         ]
@@ -42,7 +42,7 @@
     {
         "id": "case-03",
         "tag": "Apps Mobile",
-        "title": "MultiApp Suite",
+        "title": "NotificationsApp",
         "desc": "Desenvolvimento e publicação de apps nativos e cross-platform para Google Play e Apple App Store. Pipeline CI/CD completo, from code to store, com monitoramento de crashes e analytics.",
         "featured": false,
         "mockupType": "phone",
@@ -54,24 +54,6 @@
             {
                 "value": "4.7★",
                 "label": "Avaliação média"
-            }
-        ]
-    },
-    {
-        "id": "case-04",
-        "tag": "IoT & Machine Learning",
-        "title": "SensorMind",
-        "desc": "Plataforma IoT com coleta de dados de sensores industriais, modelos de machine learning para manutenção preditiva e dashboards em tempo real. Integração com MQTT, AWS IoT Core e TensorFlow.",
-        "featured": false,
-        "mockupType": "desktop-nodes",
-        "metrics": [
-            {
-                "value": "50K+",
-                "label": "Dispositivos"
-            },
-            {
-                "value": "40%",
-                "label": "Redução falhas"
             }
         ]
     },
@@ -102,11 +84,11 @@
         "mockupType": "phone",
         "metrics": [
             {
-                "value": "5M+",
+                "value": "1M+",
                 "label": "Mensagens/mês"
             },
             {
-                "value": "85%",
+                "value": "83%",
                 "label": "Resolução auto"
             }
         ]

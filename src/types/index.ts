@@ -39,12 +39,20 @@ export interface CaseStudy extends BaseEntity {
 
 /* ── Blog ─────────────────────────────────────────────────── */
 
+export interface BlogArticleSection {
+  heading: string;
+  body: string[];
+}
+
 export interface BlogArticle extends BaseEntity {
   day: string;
   month: string;
   category: string;
   title: string;
   desc: string;
+  slug: string;
+  readTime?: string;
+  sections?: BlogArticleSection[];
 }
 
 /* ── Certificates ─────────────────────────────────────────── */

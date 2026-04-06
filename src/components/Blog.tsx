@@ -1,6 +1,7 @@
 import { Reveal } from "./Reveal";
 import { useDataStore } from "../hooks/useDataStore";
 import { defaultBlog } from "../data";
+import { navigate } from "../App";
 
 export function Blog() {
   const { items: articles } = useDataStore("blog", defaultBlog);
@@ -27,7 +28,14 @@ export function Blog() {
                 <span className="blog-card__category">{a.category}</span>
                 <h3>{a.title}</h3>
                 <p>{a.desc}</p>
-                <a href="#" className="blog-card__link">
+                <a
+                  href={`/blog/${a.slug}`}
+                  className="blog-card__link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/blog/${a.slug}`);
+                  }}
+                >
                   Ler artigo →
                 </a>
               </div>

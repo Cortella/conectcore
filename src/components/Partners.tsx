@@ -10,7 +10,7 @@ export function Partners() {
   return (
     <section className="partners">
       <div className="container">
-        <p className="partners__label">Tecnologias &amp; Parceiros</p>
+        <p className="partners__label">Tecnologias</p>
       </div>
       <div className="partners__marquee">
         <div className="partners__track">

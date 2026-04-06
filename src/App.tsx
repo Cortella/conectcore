@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Metrics } from "./components/Metrics";
@@ -11,12 +12,32 @@ import { CtaSection } from "./components/CtaSection";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
+import { BlogPost } from "./components/BlogPost";
+
+export function navigate(to: string) {
+  window.history.pushState({}, "", to);
+  window.dispatchEvent(new PopStateEvent("popstate"));
+}
 
 function App() {
-  const isPrivacy = window.location.pathname === "/privacidade";
+  const [path, setPath] = useState(window.location.pathname);
 
-  if (isPrivacy) {
+  const onRouteChange = useCallback(() => {
+    setPath(window.location.pathname);
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("popstate", onRouteChange);
+    return () => window.removeEventListener("popstate", onRouteChange);
+  }, [onRouteChange]);
+
+  if (path === "/privacidade") {
     return <PrivacyPolicy />;
+  }
+
+  if (path.startsWith("/blog/")) {
+    return <BlogPost />;
   }
 
   return (
