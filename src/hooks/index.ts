@@ -14,6 +14,7 @@ import {
   defaultMetrics,
   defaultAboutValues,
   defaultNavLinks,
+  defaultProjects,
 } from "../data";
 import type {
   Service,
@@ -23,6 +24,7 @@ import type {
   Metric,
   AboutValue,
   NavLink,
+  Project,
 } from "../types";
 
 export const useServices = () =>
@@ -42,3 +44,6 @@ export const useAboutValues = () =>
 
 export const useNavLinks = () =>
   useDataStore<NavLink>("navLinks", defaultNavLinks);
+
+export const useProjects = () =>
+  useDataStore<Project>("projects", defaultProjects);

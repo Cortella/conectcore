@@ -1,0 +1,50 @@
+[
+  {
+    "id": "proj-01",
+    "client": "Pottencial Seguradora",
+    "clientUrl": "https://pottencial.com.br",
+    "summary": "Plataforma de análise de crédito para aprovação automática de seguros — do backend ao frontend.",
+    "partner": "DTI Digital",
+    "period": "2019 – 2021",
+    "duration": "2 anos",
+    "sector": "Insurtech",
+    "stack": [
+      "C#",
+      ".NET",
+      "React",
+      "SQL Server",
+      "AWS",
+      "CI/CD"
+    ],
+    "tags": [
+      "Backend",
+      "Frontend",
+      "Análise de Crédito",
+      "Automação",
+      "Cloud",
+      "DevOps"
+    ],
+    "team": [
+      {
+        "name": "Bruno Machado (Cortella)",
+        "role": "Líder de Tecnologia & Automação — Sócio",
+        "bio": "Sócio e Líder do Departamento de Tecnologia e Automação da Conectcore, desenvolvedor desde 2013. Bruno integrou o time de arquitetura e desenvolvimento da solução na Pottencial, sendo responsável pela concepção do motor de decisão de crédito e pela entrega técnica do projeto em parceria com a DTI Digital."
+      }
+    ],
+    "details": {
+      "challenge": "Automatizar por completo a decisão de aprovação de seguros com base em análise de crédito e dados bancários, eliminando gargalos manuais e reduzindo o tempo de resposta ao cliente.",
+      "solution": "Em parceria com a DTI Digital, desenvolvemos o backend inteiro em C# (.NET) e o frontend em React. Bruno Machado (Cortella), Líder de Tecnologia e Automação da Conectcore, liderou a arquitetura técnica e implementou o motor de decisão que consome dados de crédito e informações bancárias do solicitante para aprovar ou recusar seguros automaticamente — sem intervenção humana no fluxo padrão. Além do desenvolvimento, assumimos a gestão da infraestrutura na AWS, implementando pipelines de CI/CD, otimização de custos de cloud e configurações de segurança da plataforma.",
+      "highlights": [
+        "Motor de decisão de crédito com múltiplas fontes de dados",
+        "Fluxo 100% automatizado para aprovação de seguros",
+        "Integração com bureaus de crédito e APIs bancárias",
+        "Backend robusto em C# com arquitetura escalável",
+        "Frontend em React com UX orientada à conversão",
+        "Gestão de infraestrutura e otimização de custos na AWS",
+        "Configuração de segurança e controle de acesso na plataforma cloud",
+        "Implementação de pipelines de CI/CD para deploys contínuos e estáveis"
+      ],
+      "outcome": "A plataforma entrou em produção com aprovação automática de seguros, reduzindo drasticamente o tempo de resposta ao cliente e aumentando a capacidade de processamento sem crescimento proporcional de equipe. A gestão da infraestrutura AWS proporcionou redução de custos operacionais e maior resiliência. O projeto é atualmente mantido pela própria Pottencial."
+    }
+  }
+]

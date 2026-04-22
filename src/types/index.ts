@@ -171,6 +171,35 @@ export interface Partner extends BaseEntity {
   logo: string;
 }
 
+/* ── Projects (Onde já atuamos) ───────────────────────────── */
+
+export interface ProjectTeamMember {
+  name: string;
+  role: string;
+  bio: string;
+}
+
+export interface ProjectDetails {
+  challenge: string;
+  solution: string;
+  highlights: string[];
+  outcome: string;
+}
+
+export interface Project extends BaseEntity {
+  client: string;
+  clientUrl?: string;
+  summary: string;
+  partner?: string;
+  period: string;
+  duration: string;
+  sector: string;
+  stack: string[];
+  tags: string[];
+  team?: ProjectTeamMember[];
+  details: ProjectDetails;
+}
+
 /* ── Data Store ───────────────────────────────────────────── */
 
 export interface DataStore<T extends BaseEntity> {
