@@ -118,7 +118,7 @@ Nenhuma variável de ambiente é necessária para o build padrão. Caso precise 
 ### Domínio Customizado
 
 1. Vá em **Project Settings > Domains**
-2. Adicione seu domínio (ex: `conectcore.com.br`)
+2. Adicione seu domínio (ex: `conectcore.com`)
 3. Configure os DNS conforme instruções da Vercel
 
 ## Scripts Disponíveis

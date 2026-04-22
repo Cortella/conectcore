@@ -3,7 +3,9 @@ import { Reveal } from "./Reveal";
 import { defaultContact } from "../data";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as
+  | string
+  | undefined;
 
 const INITIAL = {
   name: "",
@@ -15,13 +17,17 @@ const INITIAL = {
 
 export function Contact() {
   const [formData, setFormData] = useState(INITIAL);
-  const [submitState, setSubmitState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [submitState, setSubmitState] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!WEB3FORMS_ACCESS_KEY) {
-      console.error("VITE_WEB3FORMS_ACCESS_KEY não configurada. Veja .env.example.");
+      console.error(
+        "VITE_WEB3FORMS_ACCESS_KEY não configurada. Veja .env.example.",
+      );
       setSubmitState("error");
       return;
     }
@@ -29,11 +35,15 @@ export function Contact() {
     setSubmitState("sending");
 
     const subjectLabel =
-      defaultContact.subjects.find((s) => s.value === formData.subject)?.label ?? formData.subject;
+      defaultContact.subjects.find((s) => s.value === formData.subject)
+        ?.label ?? formData.subject;
 
     const payload = new FormData();
     payload.append("access_key", WEB3FORMS_ACCESS_KEY);
-    payload.append("subject", `Contato do site — ${subjectLabel || formData.name}`);
+    payload.append(
+      "subject",
+      `Contato do site — ${subjectLabel || formData.name}`,
+    );
     payload.append("from_name", formData.name);
     payload.append("replyto", formData.email);
     payload.append("Nome", formData.name);
@@ -43,9 +53,13 @@ export function Contact() {
     payload.append("Mensagem", formData.message);
 
     try {
-      const res = await fetch(WEB3FORMS_ENDPOINT, { method: "POST", body: payload });
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        body: payload,
+      });
       const json = await res.json();
-      if (!res.ok || !json.success) throw new Error(json.message || "Falha no envio");
+      if (!res.ok || !json.success)
+        throw new Error(json.message || "Falha no envio");
 
       setSubmitState("sent");
       setTimeout(() => {
@@ -59,10 +73,13 @@ export function Contact() {
   };
 
   const buttonText =
-    submitState === "sending" ? "Enviando..."
-      : submitState === "sent" ? "✓ Mensagem Enviada!"
-      : submitState === "error" ? "Tentar novamente"
-      : "Enviar Mensagem";
+    submitState === "sending"
+      ? "Enviando..."
+      : submitState === "sent"
+        ? "✓ Mensagem Enviada!"
+        : submitState === "error"
+          ? "Tentar novamente"
+          : "Enviar Mensagem";
 
   const buttonStyle =
     submitState === "sent"
@@ -196,7 +213,8 @@ export function Contact() {
               </button>
               {submitState === "error" && (
                 <p className="contact__form-error">
-                  Não foi possível enviar agora. Tente novamente ou escreva direto para <strong>contato@conectcore.com.br</strong>.
+                  Não foi possível enviar agora. Tente novamente ou escreva
+                  direto para <strong>contato@conectcore.com</strong>.
                 </p>
               )}
             </form>

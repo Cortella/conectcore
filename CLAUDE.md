@@ -108,6 +108,6 @@ npm run dev
 ## Informações da empresa
 
 - **Nome**: ConectCore
-- **Email**: contato@conectcore.com.br
+- **Email**: contato@conectcore.com
 - **Localização**: Belo Horizonte, MG
 - **Serviços**: Engenharia de Software, Apps, Cloud, Performance, APIs, Consultoria Técnica

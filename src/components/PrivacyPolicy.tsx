@@ -1,4 +1,13 @@
+import { useSEO } from "../hooks/useSEO";
+
 export function PrivacyPolicy() {
+  useSEO({
+    title: "Política de Privacidade — ConectCore",
+    description:
+      "Política de privacidade da ConectCore: como tratamos seus dados, finalidades, direitos do titular e contato do encarregado conforme a LGPD.",
+    path: "/privacidade",
+  });
+
   return (
     <div className="privacy">
       <nav className="privacy__nav">
@@ -28,15 +37,14 @@ export function PrivacyPolicy() {
             <h2>1. Introdução</h2>
             <p>
               A <strong>Conectcore Engenharia de Software Ltda.</strong>{" "}
-              (&ldquo;Conectcore&rdquo;, &ldquo;nós&rdquo;,
-              &ldquo;nosso&rdquo;) valoriza a privacidade dos usuários de nossos
-              aplicativos, sites e serviços (coletivamente,
-              &ldquo;Serviços&rdquo;). Esta Política de Privacidade descreve
-              como coletamos, usamos, armazenamos, compartilhamos e protegemos
-              suas informações pessoais, em conformidade com a Lei Geral de
-              Proteção de Dados (LGPD — Lei nº 13.709/2018), o Regulamento
-              Geral de Proteção de Dados da União Europeia (GDPR), as políticas
-              do Google Play e da Apple App Store.
+              (&ldquo;Conectcore&rdquo;, &ldquo;nós&rdquo;, &ldquo;nosso&rdquo;)
+              valoriza a privacidade dos usuários de nossos aplicativos, sites e
+              serviços (coletivamente, &ldquo;Serviços&rdquo;). Esta Política de
+              Privacidade descreve como coletamos, usamos, armazenamos,
+              compartilhamos e protegemos suas informações pessoais, em
+              conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº
+              13.709/2018), o Regulamento Geral de Proteção de Dados da União
+              Europeia (GDPR), as políticas do Google Play e da Apple App Store.
             </p>
             <p>
               Ao utilizar nossos Serviços, você concorda com as práticas
@@ -111,9 +119,9 @@ export function PrivacyPolicy() {
             <p>Utilizamos as informações coletadas para:</p>
             <ul>
               <li>
-                <strong>Prestação de serviço:</strong> operar, manter e
-                melhorar nossos Serviços, incluindo autenticação,
-                personalização e suporte ao cliente.
+                <strong>Prestação de serviço:</strong> operar, manter e melhorar
+                nossos Serviços, incluindo autenticação, personalização e
+                suporte ao cliente.
               </li>
               <li>
                 <strong>Comunicações:</strong> enviar notificações sobre
@@ -244,8 +252,8 @@ export function PrivacyPolicy() {
             <p>
               Para exercer qualquer desses direitos, entre em contato conosco
               pelo e-mail:{" "}
-              <a href="mailto:privacidade@conectcore.com.br">
-                privacidade@conectcore.com.br
+              <a href="mailto:privacidade@conectcore.com">
+                privacidade@conectcore.com
               </a>
             </p>
           </section>
@@ -363,18 +371,18 @@ export function PrivacyPolicy() {
               </p>
               <p>
                 E-mail:{" "}
-                <a href="mailto:privacidade@conectcore.com.br">
-                  privacidade@conectcore.com.br
+                <a href="mailto:privacidade@conectcore.com">
+                  privacidade@conectcore.com
                 </a>
               </p>
               <p>
                 Site:{" "}
                 <a
-                  href="https://conectcore.com.br"
+                  href="https://conectcore.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  conectcore.com.br
+                  conectcore.com
                 </a>
               </p>
             </div>

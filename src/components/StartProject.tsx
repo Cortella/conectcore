@@ -1,12 +1,15 @@
-import { useState, useEffect, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { defaultStartProject } from "../data";
 import { navigate } from "../App";
+import { useSEO } from "../hooks/useSEO";
 
 type ClientType = "pj" | "pf";
 type SubmitState = "idle" | "sending" | "sent" | "error";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as
+  | string
+  | undefined;
 
 interface FormState {
   name: string;
@@ -64,30 +67,40 @@ export function StartProject() {
     return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
   };
 
-  useEffect(() => {
-    document.title = "Iniciar Projeto — ConectCore";
-  }, []);
+  useSEO({
+    title:
+      "Iniciar Projeto — ConectCore | Orçamento de Software, IA e Automação",
+    description:
+      "Solicite um orçamento para desenvolvimento de software, IA especialista, automação industrial, sistemas embarcados ou consultoria em TI. Resposta em até 24 horas.",
+    path: "/iniciar-projeto",
+  });
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) =>
     setForm((f) => ({ ...f, [key]: value }));
 
   const buildServiceLabel = () =>
-    data.serviceAreas.find((s) => s.value === form.serviceArea)?.title ?? form.serviceArea;
+    data.serviceAreas.find((s) => s.value === form.serviceArea)?.title ??
+    form.serviceArea;
 
   const buildSizeLabel = () =>
-    data.projectSizes.find((p) => p.value === form.projectSize)?.label ?? form.projectSize;
+    data.projectSizes.find((p) => p.value === form.projectSize)?.label ??
+    form.projectSize;
 
   const buildTimelineLabel = () =>
-    data.timelines.find((t) => t.value === form.timeline)?.label ?? form.timeline;
+    data.timelines.find((t) => t.value === form.timeline)?.label ??
+    form.timeline;
 
   const buildReferralLabel = () =>
-    data.referralSources.find((r) => r.value === form.referral)?.label ?? form.referral;
+    data.referralSources.find((r) => r.value === form.referral)?.label ??
+    form.referral;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!WEB3FORMS_ACCESS_KEY) {
-      console.error("VITE_WEB3FORMS_ACCESS_KEY não configurada. Veja .env.example.");
+      console.error(
+        "VITE_WEB3FORMS_ACCESS_KEY não configurada. Veja .env.example.",
+      );
       setSubmitState("error");
       return;
     }
@@ -102,7 +115,10 @@ export function StartProject() {
 
     payload.append("Nome completo", form.name);
     payload.append("Como te chamar", form.nickname || "—");
-    payload.append("Tipo", form.clientType === "pj" ? "Pessoa Jurídica" : "Pessoa Física");
+    payload.append(
+      "Tipo",
+      form.clientType === "pj" ? "Pessoa Jurídica" : "Pessoa Física",
+    );
     if (form.clientType === "pj") {
       payload.append("Empresa", form.company);
       payload.append("CNPJ", form.cnpj);
@@ -118,12 +134,18 @@ export function StartProject() {
     payload.append("Prazo", buildTimelineLabel());
     payload.append("Como nos encontrou", buildReferralLabel() || "—");
 
-    files.slice(0, 5).forEach((file) => payload.append("attachments", file, file.name));
+    files
+      .slice(0, 5)
+      .forEach((file) => payload.append("attachments", file, file.name));
 
     try {
-      const res = await fetch(WEB3FORMS_ENDPOINT, { method: "POST", body: payload });
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        body: payload,
+      });
       const json = await res.json();
-      if (!res.ok || !json.success) throw new Error(json.message || "Falha no envio");
+      if (!res.ok || !json.success)
+        throw new Error(json.message || "Falha no envio");
 
       setSubmitState("sent");
       setTimeout(() => {
@@ -138,10 +160,13 @@ export function StartProject() {
   };
 
   const submitLabel =
-    submitState === "sending" ? "Enviando..."
-      : submitState === "sent" ? "✓ Solicitação enviada"
-      : submitState === "error" ? "Tentar novamente"
-      : "Enviar solicitação";
+    submitState === "sending"
+      ? "Enviando..."
+      : submitState === "sent"
+        ? "✓ Solicitação enviada"
+        : submitState === "error"
+          ? "Tentar novamente"
+          : "Enviar solicitação";
 
   return (
     <div className="start-project">
@@ -159,7 +184,6 @@ export function StartProject() {
 
       <main className="start-project__main">
         <div className="start-project__inner">
-
           <div className="start-project__hero">
             <span className="section-tag">{data.hero.tag}</span>
             <h1 className="start-project__title">
@@ -169,11 +193,12 @@ export function StartProject() {
           </div>
 
           <form className="start-project__form" onSubmit={handleSubmit}>
-
             {/* Seção 1 — Sobre você */}
             <section className="start-project__section">
               <div className="start-project__section-head">
-                <span className="start-project__section-number">{data.sections[0].number}</span>
+                <span className="start-project__section-number">
+                  {data.sections[0].number}
+                </span>
                 <div>
                   <h2>{data.sections[0].title}</h2>
                   <p>{data.sections[0].description}</p>
@@ -205,8 +230,14 @@ export function StartProject() {
                 </div>
               </div>
 
-              <div className="start-project__client-type" role="radiogroup" aria-label="Tipo de cliente">
-                <label className={`start-project__chip${form.clientType === "pj" ? " is-active" : ""}`}>
+              <div
+                className="start-project__client-type"
+                role="radiogroup"
+                aria-label="Tipo de cliente"
+              >
+                <label
+                  className={`start-project__chip${form.clientType === "pj" ? " is-active" : ""}`}
+                >
                   <input
                     type="radio"
                     name="clientType"
@@ -216,7 +247,9 @@ export function StartProject() {
                   />
                   Pessoa Jurídica
                 </label>
-                <label className={`start-project__chip${form.clientType === "pf" ? " is-active" : ""}`}>
+                <label
+                  className={`start-project__chip${form.clientType === "pf" ? " is-active" : ""}`}
+                >
                   <input
                     type="radio"
                     name="clientType"
@@ -265,7 +298,9 @@ export function StartProject() {
                         value={form.repName}
                         onChange={(e) => update("repName", e.target.value)}
                       />
-                      <label htmlFor="repName">Nome do representante (opcional)</label>
+                      <label htmlFor="repName">
+                        Nome do representante (opcional)
+                      </label>
                     </div>
 
                     <div className="form-group">
@@ -276,7 +311,9 @@ export function StartProject() {
                         value={form.repContact}
                         onChange={(e) => update("repContact", e.target.value)}
                       />
-                      <label htmlFor="repContact">Contato do representante (opcional)</label>
+                      <label htmlFor="repContact">
+                        Contato do representante (opcional)
+                      </label>
                     </div>
                   </div>
                 </>
@@ -323,7 +360,9 @@ export function StartProject() {
             {/* Seção 2 — Seu projeto */}
             <section className="start-project__section">
               <div className="start-project__section-head">
-                <span className="start-project__section-number">{data.sections[1].number}</span>
+                <span className="start-project__section-number">
+                  {data.sections[1].number}
+                </span>
                 <div>
                   <h2>{data.sections[1].title}</h2>
                   <p>{data.sections[1].description}</p>
@@ -359,21 +398,42 @@ export function StartProject() {
                   value={form.description}
                   onChange={(e) => update("description", e.target.value)}
                 />
-                <label htmlFor="description">Descreva seu projeto com o máximo de detalhes</label>
+                <label htmlFor="description">
+                  Descreva seu projeto com o máximo de detalhes
+                </label>
               </div>
 
               <div className="start-project__upload">
-                <label htmlFor="attachments" className="start-project__upload-drop" aria-label="Anexar arquivos">
-                  <div className="start-project__upload-icon" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-                      <polyline points="17 8 12 3 7 8"/>
-                      <line x1="12" y1="3" x2="12" y2="15"/>
+                <label
+                  htmlFor="attachments"
+                  className="start-project__upload-drop"
+                  aria-label="Anexar arquivos"
+                >
+                  <div
+                    className="start-project__upload-icon"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                      <polyline points="17 8 12 3 7 8" />
+                      <line x1="12" y1="3" x2="12" y2="15" />
                     </svg>
                   </div>
                   <div className="start-project__upload-text">
                     <strong>Anexar arquivos</strong>
-                    <span>Briefings, mockups, referências ou documentos — PDF, imagens, docs (opcional)</span>
+                    <span>
+                      Briefings, mockups, referências ou documentos — PDF,
+                      imagens, docs (opcional)
+                    </span>
                   </div>
                   <input
                     type="file"
@@ -386,9 +446,16 @@ export function StartProject() {
                 {files.length > 0 && (
                   <ul className="start-project__file-list">
                     {files.map((file, i) => (
-                      <li key={`${file.name}-${i}`} className="start-project__file">
-                        <span className="start-project__file-name">{file.name}</span>
-                        <span className="start-project__file-size">{formatSize(file.size)}</span>
+                      <li
+                        key={`${file.name}-${i}`}
+                        className="start-project__file"
+                      >
+                        <span className="start-project__file-name">
+                          {file.name}
+                        </span>
+                        <span className="start-project__file-size">
+                          {formatSize(file.size)}
+                        </span>
                         <button
                           type="button"
                           className="start-project__file-remove"
@@ -407,7 +474,9 @@ export function StartProject() {
             {/* Seção 3 — Orçamento e prazo */}
             <section className="start-project__section">
               <div className="start-project__section-head">
-                <span className="start-project__section-number">{data.sections[2].number}</span>
+                <span className="start-project__section-number">
+                  {data.sections[2].number}
+                </span>
                 <div>
                   <h2>{data.sections[2].title}</h2>
                   <p>{data.sections[2].description}</p>
@@ -422,9 +491,13 @@ export function StartProject() {
                     value={form.projectSize}
                     onChange={(e) => update("projectSize", e.target.value)}
                   >
-                    <option value="" disabled>Tamanho do projeto</option>
+                    <option value="" disabled>
+                      Tamanho do projeto
+                    </option>
                     {data.projectSizes.map((b) => (
-                      <option key={b.value} value={b.value}>{b.label}</option>
+                      <option key={b.value} value={b.value}>
+                        {b.label}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -436,9 +509,13 @@ export function StartProject() {
                     value={form.timeline}
                     onChange={(e) => update("timeline", e.target.value)}
                   >
-                    <option value="" disabled>Prazo desejado</option>
+                    <option value="" disabled>
+                      Prazo desejado
+                    </option>
                     {data.timelines.map((t) => (
-                      <option key={t.value} value={t.value}>{t.label}</option>
+                      <option key={t.value} value={t.value}>
+                        {t.label}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -448,7 +525,9 @@ export function StartProject() {
             {/* Seção 4 — Como nos encontrou */}
             <section className="start-project__section">
               <div className="start-project__section-head">
-                <span className="start-project__section-number">{data.sections[3].number}</span>
+                <span className="start-project__section-number">
+                  {data.sections[3].number}
+                </span>
                 <div>
                   <h2>{data.sections[3].title}</h2>
                   <p>{data.sections[3].description}</p>
@@ -480,20 +559,22 @@ export function StartProject() {
                 type="submit"
                 className="btn btn--primary"
                 disabled={submitState === "sending" || submitState === "sent"}
-                style={submitState === "sent" ? { background: "#25D366" } : undefined}
+                style={
+                  submitState === "sent" ? { background: "#25D366" } : undefined
+                }
               >
                 {submitLabel}
               </button>
               {submitState === "error" && (
                 <p className="start-project__submit-error">
-                  Não foi possível enviar agora. Tente novamente ou escreva direto para <strong>contato@conectcore.com.br</strong>.
+                  Não foi possível enviar agora. Tente novamente ou escreva
+                  direto para <strong>contato@conectcore.com</strong>.
                 </p>
               )}
               <p className="start-project__submit-note">
                 Responderemos em até 24 horas úteis no e-mail informado.
               </p>
             </div>
-
           </form>
         </div>
       </main>

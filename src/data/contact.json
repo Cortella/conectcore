@@ -4,8 +4,8 @@
             "id": "contact-01",
             "icon": "✉",
             "label": "Email",
-            "value": "contato@conectcore.com.br",
-            "href": "mailto:contato@conectcore.com.br",
+            "value": "contato@conectcore.com",
+            "href": "mailto:contato@conectcore.com",
             "external": false
         },
         {
