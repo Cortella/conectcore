@@ -3,7 +3,7 @@
     "subtitle": "Vamos conversar sobre como a Conectcore pode transformar sua visão em realidade.",
     "primaryAction": {
         "label": "Iniciar Projeto",
-        "href": "#contact"
+        "href": "/iniciar-projeto"
     },
     "whatsappAction": {
         "label": "WhatsApp",

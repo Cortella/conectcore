@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useDataStore } from "../hooks/useDataStore";
 import { defaultNavLinks } from "../data";
+import { navigate } from "../App";
 
 export function Navbar() {
   const { items: links } = useDataStore("navLinks", defaultNavLinks);
@@ -79,6 +80,12 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`nav__link${link.cta ? " nav__link--cta" : ""}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(link.href);
+                  setIsMobileOpen(false);
+                  document.body.style.overflow = "";
+                }}
               >
                 {link.label}
               </a>

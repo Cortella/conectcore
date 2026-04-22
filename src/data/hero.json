@@ -8,7 +8,7 @@
         "href": "#services"
     },
     "secondaryAction": {
-        "label": "Fale Conosco",
-        "href": "#contact"
+        "label": "Iniciar Projeto",
+        "href": "/iniciar-projeto"
     }
 }

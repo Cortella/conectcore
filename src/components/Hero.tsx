@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Reveal } from "./Reveal";
 import { defaultHero } from "../data";
+import { navigate } from "../App";
 
 export function Hero() {
   const gradientRef = useRef<HTMLDivElement>(null);
@@ -45,8 +46,12 @@ export function Hero() {
     };
   }, []);
 
-  const scrollTo = (e: React.MouseEvent, href: string) => {
+  const handleAction = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
+    if (href.startsWith("/")) {
+      navigate(href);
+      return;
+    }
     const target = document.querySelector(href);
     if (target) {
       const navHeight = 72;
@@ -84,14 +89,14 @@ export function Hero() {
             <a
               href={defaultHero.primaryAction.href}
               className="btn btn--primary"
-              onClick={(e) => scrollTo(e, defaultHero.primaryAction.href)}
+              onClick={(e) => handleAction(e, defaultHero.primaryAction.href)}
             >
               {defaultHero.primaryAction.label}
             </a>
             <a
               href={defaultHero.secondaryAction.href}
               className="btn btn--ghost"
-              onClick={(e) => scrollTo(e, defaultHero.secondaryAction.href)}
+              onClick={(e) => handleAction(e, defaultHero.secondaryAction.href)}
             >
               {defaultHero.secondaryAction.label}
             </a>

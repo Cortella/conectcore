@@ -45,6 +45,12 @@
         "id": "nav-08",
         "href": "#contact",
         "label": "Contato",
+        "cta": false
+    },
+    {
+        "id": "nav-09",
+        "href": "/iniciar-projeto",
+        "label": "Faça um Orçamento",
         "cta": true
     }
 ]

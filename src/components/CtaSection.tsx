@@ -1,9 +1,14 @@
 import { Reveal } from "./Reveal";
 import { defaultCta } from "../data";
+import { navigate } from "../App";
 
 export function CtaSection() {
-  const scrollTo = (e: React.MouseEvent, href: string) => {
+  const handleAction = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
+    if (href.startsWith("/")) {
+      navigate(href);
+      return;
+    }
     const target = document.querySelector(href);
     if (target) {
       const navHeight = 72;
@@ -29,7 +34,7 @@ export function CtaSection() {
             <a
               href={defaultCta.primaryAction.href}
               className="btn btn--primary btn--large"
-              onClick={(e) => scrollTo(e, defaultCta.primaryAction.href)}
+              onClick={(e) => handleAction(e, defaultCta.primaryAction.href)}
             >
               {defaultCta.primaryAction.label}
             </a>

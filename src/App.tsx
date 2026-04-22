@@ -14,6 +14,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { BlogPost } from "./components/BlogPost";
+import { StartProject } from "./components/StartProject";
 
 export function navigate(to: string) {
   window.history.pushState({}, "", to);
@@ -35,6 +36,10 @@ function App() {
 
   if (path === "/privacidade") {
     return <PrivacyPolicy />;
+  }
+
+  if (path === "/iniciar-projeto") {
+    return <StartProject />;
   }
 
   if (path.startsWith("/blog/")) {

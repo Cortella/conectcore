@@ -201,6 +201,41 @@ export interface Project extends BaseEntity {
   details: ProjectDetails;
 }
 
+/* ── New Project Form ─────────────────────────────────────── */
+
+export interface StartProjectSection {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface StartProjectOption {
+  value: string;
+  label: string;
+}
+
+export interface StartProjectServiceArea {
+  value: string;
+  title: string;
+  description: string;
+}
+
+export interface StartProjectHero {
+  tag: string;
+  title: string;
+  titleEm: string;
+  subtitle: string;
+}
+
+export interface StartProjectData {
+  hero: StartProjectHero;
+  sections: StartProjectSection[];
+  serviceAreas: StartProjectServiceArea[];
+  budgetRanges: StartProjectOption[];
+  timelines: StartProjectOption[];
+  referralSources: StartProjectOption[];
+}
+
 /* ── Data Store ───────────────────────────────────────────── */
 
 export interface DataStore<T extends BaseEntity> {

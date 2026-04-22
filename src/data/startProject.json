@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "tag": "Iniciar Projeto",
+    "title": "Vamos construir",
+    "titleEm": "algo grande juntos.",
+    "subtitle": "Conte sobre seu projeto com o máximo de detalhes possível. Quanto mais informações, mais precisa será nossa análise e proposta."
+  },
+  "sections": [
+    {
+      "number": "01",
+      "title": "Sobre você",
+      "description": "Como podemos te conhecer melhor?"
+    },
+    {
+      "number": "02",
+      "title": "Seu projeto",
+      "description": "Do que se trata o desafio?"
+    },
+    {
+      "number": "03",
+      "title": "Orçamento e prazo",
+      "description": "Vamos alinhar expectativas desde o início."
+    },
+    {
+      "number": "04",
+      "title": "Como nos encontrou?",
+      "description": "Nos ajuda a saber de onde você veio."
+    }
+  ],
+  "serviceAreas": [
+    {
+      "value": "desenvolvimento",
+      "title": "Desenvolvimento de Software",
+      "description": "Construir um novo produto, app ou sistema do zero."
+    },
+    {
+      "value": "manutencao",
+      "title": "Manutenção em Software Legado",
+      "description": "Evoluir, corrigir ou modernizar um sistema existente."
+    },
+    {
+      "value": "consultoria",
+      "title": "Consultoria em TI",
+      "description": "Arquitetura, tecnologia, processo ou direção técnica."
+    }
+  ],
+  "budgetRanges": [
+    {
+      "value": "under-20k",
+      "label": "Até R$ 20.000"
+    },
+    {
+      "value": "20k-50k",
+      "label": "R$ 20.000 – R$ 50.000"
+    },
+    {
+      "value": "50k-150k",
+      "label": "R$ 50.000 – R$ 150.000"
+    },
+    {
+      "value": "150k-plus",
+      "label": "Acima de R$ 150.000"
+    },
+    {
+      "value": "discuss",
+      "label": "Prefiro discutir"
+    }
+  ],
+  "timelines": [
+    {
+      "value": "urgent",
+      "label": "Urgente — em até 30 dias"
+    },
+    {
+      "value": "1-3m",
+      "label": "1 a 3 meses"
+    },
+    {
+      "value": "3-6m",
+      "label": "3 a 6 meses"
+    },
+    {
+      "value": "6m-plus",
+      "label": "Mais de 6 meses"
+    },
+    {
+      "value": "flexible",
+      "label": "Flexível / sem pressa"
+    }
+  ],
+  "referralSources": [
+    {
+      "value": "google",
+      "label": "Google"
+    },
+    {
+      "value": "linkedin",
+      "label": "LinkedIn"
+    },
+    {
+      "value": "instagram",
+      "label": "Instagram"
+    },
+    {
+      "value": "indication",
+      "label": "Indicação"
+    },
+    {
+      "value": "event",
+      "label": "Evento / conferência"
+    },
+    {
+      "value": "other",
+      "label": "Outro"
+    }
+  ]
+}
