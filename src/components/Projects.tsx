@@ -24,77 +24,66 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div className="project-modal__content">
-        <button className="project-modal__close" aria-label="Fechar" onClick={onClose}>✕</button>
 
-        <div className="project-modal__header">
-          <div className="project-modal__meta">
-            <span className="project-card__sector">{project.sector}</span>
-            <span className="project-modal__period">{project.period} · {project.duration}</span>
-          </div>
-          <h2 className="project-modal__title">{project.client}</h2>
-          {project.partner && (
-            <p className="project-modal__partner">Em parceria com <strong>{project.partner}</strong></p>
-          )}
-          <div className="project-card__stack">
-            {project.stack.map((s) => <span key={s} className="project-card__tag">{s}</span>)}
-          </div>
+        <div className="project-modal__topbar">
+          <span className="project-card__sector">{project.sector}</span>
+          <button className="project-modal__close" aria-label="Fechar" onClick={onClose}>✕</button>
         </div>
 
-        <div className="project-modal__body">
-          <div className="project-modal__section">
-            <h3>Desafio</h3>
-            <p>{project.details.challenge}</p>
+        <div className="project-modal__scroll">
+
+          <div className="project-modal__header">
+            <h2 className="project-modal__title">{project.client}</h2>
+            {project.product && <p className="project-modal__product">{project.product}</p>}
+            <p className="project-modal__meta">
+              {project.period}
+              {project.partner && <> · Parceria com <strong>{project.partner}</strong></>}
+            </p>
           </div>
 
-          <div className="project-modal__section">
-            <h3>Solução</h3>
-            <p>{project.details.solution}</p>
-          </div>
+          <div className="project-modal__body">
 
-          <div className="project-modal__section">
-            <h3>Destaques</h3>
-            <ul className="project-modal__highlights">
-              {project.details.highlights.map((h, i) => (
-                <li key={i}>{h}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="project-modal__section">
-            <h3>Resultado</h3>
-            <p>{project.details.outcome}</p>
-          </div>
-
-          {project.team && project.team.length > 0 && (
             <div className="project-modal__section">
-              <h3>Time</h3>
-              <div className="project-modal__team">
-                {project.team.map((member) => (
-                  <div key={member.name} className="project-modal__member">
-                    <div className="project-modal__member-info">
-                      <strong>{member.name}</strong>
-                      <span>{member.role}</span>
-                    </div>
-                    <p>{member.bio}</p>
-                  </div>
-                ))}
+              <p className="project-modal__label">Desafio</p>
+              <p>{project.details.challenge}</p>
+            </div>
+
+            <div className="project-modal__section">
+              <p className="project-modal__label">Solução</p>
+              <p>{project.details.solution}</p>
+            </div>
+
+            <div className="project-modal__section">
+              <p className="project-modal__label">Destaques</p>
+              <ul className="project-modal__highlights">
+                {project.details.highlights.map((h, i) => <li key={i}>{h}</li>)}
+              </ul>
+            </div>
+
+            <div className="project-modal__section">
+              <p className="project-modal__label">Resultado</p>
+              <p>{project.details.outcome}</p>
+            </div>
+
+            <div className="project-modal__section">
+              <p className="project-modal__label">Stack</p>
+              <div className="project-modal__stack">
+                {project.stack.map((s) => <span key={s} className="project-card__tag">{s}</span>)}
               </div>
             </div>
-          )}
-        </div>
 
-        {project.clientUrl && (
-          <div className="project-modal__footer">
-            <a
-              href={project.clientUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--outline"
-            >
-              Visitar site do cliente ↗
-            </a>
           </div>
-        )}
+
+          {project.clientUrl && (
+            <div className="project-modal__footer">
+              <a href={project.clientUrl} target="_blank" rel="noopener noreferrer" className="project-modal__link">
+                Visitar site do cliente
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          )}
+
+        </div>
       </div>
     </div>
   );
@@ -130,6 +119,9 @@ export function Projects() {
               </div>
 
               <h3 className="project-card__client">{project.client}</h3>
+              {project.product && (
+                <span className="project-card__product">{project.product}</span>
+              )}
               <p className="project-card__summary">{project.summary}</p>
 
               {project.partner && (

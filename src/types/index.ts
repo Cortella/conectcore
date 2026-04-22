@@ -189,6 +189,7 @@ export interface ProjectDetails {
 export interface Project extends BaseEntity {
   client: string;
   clientUrl?: string;
+  product?: string;
   summary: string;
   partner?: string;
   period: string;

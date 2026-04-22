@@ -8,22 +8,8 @@
     "period": "2019 – 2021",
     "duration": "2 anos",
     "sector": "Insurtech",
-    "stack": [
-      "C#",
-      ".NET",
-      "React",
-      "SQL Server",
-      "AWS",
-      "CI/CD"
-    ],
-    "tags": [
-      "Backend",
-      "Frontend",
-      "Análise de Crédito",
-      "Automação",
-      "Cloud",
-      "DevOps"
-    ],
+    "stack": ["C#", ".NET", "React", "SQL Server", "AWS", "CI/CD"],
+    "tags": ["Backend", "Frontend", "Análise de Crédito", "Automação", "Cloud", "DevOps"],
     "team": [
       {
         "name": "Bruno Machado (Cortella)",
@@ -45,6 +31,41 @@
         "Implementação de pipelines de CI/CD para deploys contínuos e estáveis"
       ],
       "outcome": "A plataforma entrou em produção com aprovação automática de seguros, reduzindo drasticamente o tempo de resposta ao cliente e aumentando a capacidade de processamento sem crescimento proporcional de equipe. A gestão da infraestrutura AWS proporcionou redução de custos operacionais e maior resiliência. O projeto é atualmente mantido pela própria Pottencial."
+    }
+  },
+  {
+    "id": "proj-02",
+    "client": "Formula Tesla UFMG",
+    "clientUrl": "https://formulateslaufmg.com/",
+    "product": "BMS — Battery Management System",
+    "summary": "Sistema embarcado de gerenciamento de baterias para veículo elétrico de competição — monitoramento de células, segurança do piloto e integridade do sistema em tempo real.",
+    "period": "2019 – 2020",
+    "duration": "1 ano",
+    "sector": "Sistemas Embarcados",
+    "stack": ["C", "STM32", "RTOS", "UART", "CAN", "SPI", "Node.js", "React"],
+    "tags": ["Embarcados", "Veículo Elétrico", "Hardware", "Tempo Real", "Segurança"],
+    "team": [
+      {
+        "name": "Bruno Machado (Cortella)",
+        "role": "Líder de Tecnologia & Automação — Sócio",
+        "bio": "Responsável pela implementação de features no firmware embarcado no STM32, roteamento de placas PCB, soldagem de componentes, ministrou o curso interno de Git para o time e liderou a gestão do projeto via Kanban. Também iniciou o desenvolvimento do site do projeto com Node.js e React."
+      }
+    ],
+    "details": {
+      "challenge": "Garantir a segurança do piloto e a integridade do sistema de baterias de um veículo elétrico de competição por meio de um firmware embarcado confiável, capaz de monitorar tensão, corrente e temperatura das células em tempo real e reagir automaticamente a condições críticas.",
+      "solution": "Desenvolvemos o firmware em linguagem C para o microcontrolador STM32 com implementação de RTOS para gerenciamento eficiente de threads. Integramos sensores de tensão, corrente e temperatura para monitoramento contínuo das células de carga. Implementamos comunicação bit a bit e os protocolos UART, CAN e SPI para troca de dados entre módulos do veículo. O sistema conta com watchdog e um sistema de desligamento automático acionado quando os parâmetros ultrapassam limiares de segurança. O time realizou roteamento de placas PCB e soldagem de componentes, adotou Kanban para gestão e iniciou o desenvolvimento de um site de monitoramento com Node.js e React.",
+      "highlights": [
+        "Firmware embarcado em C para microcontrolador STM32 com RTOS",
+        "Gerenciamento e sincronização de threads do microcontrolador",
+        "Monitoramento de células via sensores de tensão, corrente e temperatura",
+        "Sistema de desligamento automático por parâmetros fora dos limites de segurança",
+        "Sistema de segurança com watchdog para resposta automática a falhas",
+        "Comunicação bit a bit e protocolos UART, CAN e SPI",
+        "Roteamento de placas PCB e soldagem de componentes",
+        "Início do desenvolvimento do site do projeto com Node.js e React",
+        "Gestão com Kanban e capacitação do time com curso interno de Git"
+      ],
+      "outcome": "Sistema BMS funcional e validado em ambiente de competição, garantindo monitoramento contínuo das células de carga com desligamento automático de segurança, proteção do piloto e integridade do sistema em condições adversas de operação."
     }
   }
 ]
