@@ -6,7 +6,7 @@ import { Partners } from "./components/Partners";
 import { About } from "./components/About";
 import { Services } from "./components/Services";
 import { Cases } from "./components/Cases";
-import { Certificates } from "./components/Certificates";
+import { Research } from "./components/Research";
 import { Blog } from "./components/Blog";
 import { CtaSection } from "./components/CtaSection";
 import { Contact } from "./components/Contact";
@@ -44,12 +44,11 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Metrics />
       <Partners />
       <About />
       <Services />
       <Cases />
-      <Certificates />
+      <Research />
       <Blog />
       <CtaSection />
       <Contact />

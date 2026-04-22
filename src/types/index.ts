@@ -55,14 +55,17 @@ export interface BlogArticle extends BaseEntity {
   sections?: BlogArticleSection[];
 }
 
-/* ── Certificates ─────────────────────────────────────────── */
+/* ── Research ──────────────────────────────────────────────── */
 
-export interface Certificate extends BaseEntity {
-  src: string;
-  alt: string;
-  logo: string;
+export interface ResearchPaper extends BaseEntity {
   title: string;
-  org: string;
+  authors: string[];
+  venue: string;
+  year: number;
+  type: string;
+  doi?: string;
+  abstract: string;
+  tags: string[];
 }
 
 /* ── Metrics ──────────────────────────────────────────────── */

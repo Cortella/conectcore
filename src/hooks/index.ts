@@ -10,7 +10,7 @@ import {
   defaultServices,
   defaultCases,
   defaultBlog,
-  defaultCertificates,
+  defaultResearch,
   defaultMetrics,
   defaultAboutValues,
   defaultNavLinks,
@@ -19,7 +19,7 @@ import type {
   Service,
   CaseStudy,
   BlogArticle,
-  Certificate,
+  ResearchPaper,
   Metric,
   AboutValue,
   NavLink,
@@ -32,8 +32,8 @@ export const useCases = () => useDataStore<CaseStudy>("cases", defaultCases);
 
 export const useBlog = () => useDataStore<BlogArticle>("blog", defaultBlog);
 
-export const useCertificates = () =>
-  useDataStore<Certificate>("certificates", defaultCertificates);
+export const useResearch = () =>
+  useDataStore<ResearchPaper>("research", defaultResearch);
 
 export const useMetrics = () => useDataStore<Metric>("metrics", defaultMetrics);
 

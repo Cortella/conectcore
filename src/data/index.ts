@@ -7,7 +7,7 @@ import type {
   Service,
   CaseStudy,
   BlogArticle,
-  Certificate,
+  ResearchPaper,
   Metric,
   AboutValue,
   NavLink,
@@ -21,7 +21,7 @@ import type {
 import servicesJson from "./services.json";
 import casesJson from "./cases.json";
 import blogJson from "./blog.json";
-import certificatesJson from "./certificates.json";
+import researchJson from "./research.json";
 import metricsJson from "./metrics.json";
 import aboutJson from "./about.json";
 import navbarJson from "./navbar.json";
@@ -34,7 +34,7 @@ import partnersJson from "./partners.json";
 export const defaultServices: Service[] = servicesJson;
 export const defaultCases: CaseStudy[] = casesJson as CaseStudy[];
 export const defaultBlog: BlogArticle[] = blogJson;
-export const defaultCertificates: Certificate[] = certificatesJson;
+export const defaultResearch: ResearchPaper[] = researchJson;
 export const defaultMetrics: Metric[] = metricsJson;
 export const defaultAboutValues: AboutValue[] = aboutJson;
 export const defaultNavLinks: NavLink[] = navbarJson;

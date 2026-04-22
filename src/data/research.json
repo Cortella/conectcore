@@ -1,0 +1,111 @@
+[
+    {
+        "id": "research-01",
+        "title": "Otimização de Modelos de Machine Learning para Detecção de Anomalias em Sistemas Distribuídos",
+        "authors": [
+            "Lucas Ferreira",
+            "Ana Paula Santos"
+        ],
+        "venue": "Simpósio Brasileiro de Engenharia de Software (SBES)",
+        "year": 2025,
+        "type": "conferência",
+        "doi": "10.1145/sbes.2025.0042",
+        "abstract": "Propõe uma abordagem baseada em ensemble learning para detecção precoce de anomalias em microsserviços, alcançando 94% de precisão com latência inferior a 200ms.",
+        "tags": [
+            "Machine Learning",
+            "Sistemas Distribuídos",
+            "DevOps"
+        ]
+    },
+    {
+        "id": "research-02",
+        "title": "Arquitetura Serverless Orientada a Eventos: Um Estudo de Caso em Aplicações Financeiras de Alta Disponibilidade",
+        "authors": [
+            "Rafael Mendes",
+            "Lucas Ferreira"
+        ],
+        "venue": "Journal of Systems and Software (JSS)",
+        "year": 2025,
+        "type": "periódico",
+        "doi": "10.1016/j.jss.2025.111842",
+        "abstract": "Analisa padrões arquiteturais serverless aplicados ao setor financeiro, demonstrando redução de 67% em custos operacionais mantendo SLA de 99.99%.",
+        "tags": [
+            "Cloud Computing",
+            "Serverless",
+            "FinTech"
+        ]
+    },
+    {
+        "id": "research-03",
+        "title": "Análise de Desempenho de WebAssembly em Aplicações de Processamento de Imagem no Navegador",
+        "authors": [
+            "Ana Paula Santos",
+            "Marcos Oliveira"
+        ],
+        "venue": "International Conference on Web Engineering (ICWE)",
+        "year": 2024,
+        "type": "conferência",
+        "doi": "10.1007/978-3-031-2024-0023",
+        "abstract": "Compara implementações WebAssembly e JavaScript para pipelines de processamento de imagem, evidenciando ganhos de até 12x em tempo de execução.",
+        "tags": [
+            "WebAssembly",
+            "Performance",
+            "Frontend"
+        ]
+    },
+    {
+        "id": "research-04",
+        "title": "CI/CD Inteligente: Predição de Falhas em Pipelines com Redes Neurais Recorrentes",
+        "authors": [
+            "Lucas Ferreira",
+            "Juliana Costa",
+            "Rafael Mendes"
+        ],
+        "venue": "IEEE International Conference on Software Maintenance and Evolution (ICSME)",
+        "year": 2024,
+        "type": "conferência",
+        "doi": "10.1109/ICSME.2024.00045",
+        "abstract": "Apresenta um modelo LSTM treinado em logs de 50.000 pipelines para prever falhas de build com 89% de acurácia, reduzindo tempo de feedback em 40%.",
+        "tags": [
+            "CI/CD",
+            "Deep Learning",
+            "DevOps"
+        ]
+    },
+    {
+        "id": "research-05",
+        "title": "Segurança em APIs GraphQL: Taxonomia de Vulnerabilidades e Framework de Mitigação",
+        "authors": [
+            "Marcos Oliveira",
+            "Ana Paula Santos"
+        ],
+        "venue": "ACM Computing Surveys",
+        "year": 2025,
+        "type": "periódico",
+        "doi": "10.1145/3612345",
+        "abstract": "Mapeia 23 categorias de vulnerabilidades específicas de GraphQL e propõe um framework open-source de validação e rate-limiting que reduz superfície de ataque em 78%.",
+        "tags": [
+            "Segurança",
+            "GraphQL",
+            "API Design"
+        ]
+    },
+    {
+        "id": "research-06",
+        "title": "Microsserviços Auto-Escaláveis com Reinforcement Learning: Uma Abordagem para Kubernetes",
+        "authors": [
+            "Rafael Mendes",
+            "Juliana Costa"
+        ],
+        "venue": "Congresso Brasileiro de Software (CBSoft)",
+        "year": 2024,
+        "type": "conferência",
+        "doi": "10.5753/cbsoft.2024.0089",
+        "abstract": "Implementa agente de reinforcement learning para auto-scaling de pods Kubernetes, atingindo 35% de economia de recursos comparado ao HPA padrão.",
+        "tags": [
+            "Kubernetes",
+            "IA",
+            "Cloud Native"
+        ]
+    }
+]

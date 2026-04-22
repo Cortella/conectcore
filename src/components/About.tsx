@@ -21,26 +21,30 @@ export function About() {
             <p className="about__lead">
               A Conectcore nasceu da convicção de que tecnologia de verdade é
               sobre <strong>resolver problemas reais</strong> com elegância e
-              eficiência.
+              eficiência — e que a inteligência artificial é o maior acelerador
+              dessa equação.
             </p>
             <p>
-              Somos uma empresa de engenharia de software focada em construções
-              inteligentes: desde a arquitetura de produtos digitais até a
-              otimização de infraestruturas complexas. Cada linha de código que
-              escrevemos é pensada para performar, escalar e durar.
+              Nosso principal produto hoje são as{" "}
+              <strong>IAs especialistas</strong>: modelos treinados e ajustados
+              para contextos empresariais específicos. Desenvolvemos, treinamos
+              e implantamos agentes de IA que compreendem o vocabulário, os
+              processos e as regras do seu negócio — automatizando decisões
+              complexas, destravando eficiência operacional e gerando vantagem
+              competitiva real.
             </p>
             <p>
-              Unimos engenharia de alto nível a uma mentalidade centrada no
-              usuário para criar soluções que geram impacto real — sistemas
-              resilientes, experiências digitais que encantam e infraestruturas
-              preparadas para o crescimento exponencial.
+              Essa expertise em IA se apoia em uma base sólida de engenharia de
+              software: arquitetura de produtos digitais, infraestruturas
+              escaláveis em nuvem e sistemas de alto desempenho. Cada solução é
+              pensada para performar, escalar e durar.
             </p>
             <p>
-              Além do universo digital, atuamos na interseção entre hardware e
-              software: desenvolvemos projetos elétricos, design de PCBs e
-              sistemas embarcados sob medida — levando a mesma excelência
-              técnica do código para o mundo físico, do protótipo à produção em
-              escala.
+              Atuamos ainda na automação industrial e de processos — programação
+              de CLPs, análise de sinais, otimização de lógicas de controle e
+              sistemas orientados a eventos. E quando o desafio vai além do
+              software, desenvolvemos projetos elétricos, design de PCBs e
+              sistemas embarcados sob medida: do protótipo à produção em escala.
             </p>
           </Reveal>
           <Reveal className="about__values">
