@@ -43,8 +43,23 @@ const INITIAL: FormState = {
 
 export function StartProject() {
   const [form, setForm] = useState<FormState>(INITIAL);
+  const [files, setFiles] = useState<File[]>([]);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const data = defaultStartProject;
+
+  const addFiles = (list: FileList | null) => {
+    if (!list) return;
+    setFiles((prev) => [...prev, ...Array.from(list)]);
+  };
+
+  const removeFile = (index: number) =>
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+
+  const formatSize = (bytes: number) => {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  };
 
   useEffect(() => {
     document.title = "Iniciar Projeto — ConectCore";
@@ -289,6 +304,47 @@ export function StartProject() {
                   onChange={(e) => update("description", e.target.value)}
                 />
                 <label htmlFor="description">Descreva seu projeto com o máximo de detalhes</label>
+              </div>
+
+              <div className="start-project__upload">
+                <label htmlFor="attachments" className="start-project__upload-drop" aria-label="Anexar arquivos">
+                  <div className="start-project__upload-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                      <polyline points="17 8 12 3 7 8"/>
+                      <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                  </div>
+                  <div className="start-project__upload-text">
+                    <strong>Anexar arquivos</strong>
+                    <span>Briefings, mockups, referências ou documentos — PDF, imagens, docs (opcional)</span>
+                  </div>
+                  <input
+                    type="file"
+                    id="attachments"
+                    multiple
+                    onChange={(e) => addFiles(e.target.files)}
+                  />
+                </label>
+
+                {files.length > 0 && (
+                  <ul className="start-project__file-list">
+                    {files.map((file, i) => (
+                      <li key={`${file.name}-${i}`} className="start-project__file">
+                        <span className="start-project__file-name">{file.name}</span>
+                        <span className="start-project__file-size">{formatSize(file.size)}</span>
+                        <button
+                          type="button"
+                          className="start-project__file-remove"
+                          onClick={() => removeFile(i)}
+                          aria-label={`Remover ${file.name}`}
+                        >
+                          ✕
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </section>
 

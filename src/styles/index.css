@@ -2715,7 +2715,7 @@ a {
 /* Serviços — radio cards maiores */
 .start-project__service-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
@@ -2765,6 +2765,122 @@ a {
   color: var(--accent);
 }
 
+/* Upload de arquivos */
+.start-project__upload {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.start-project__upload-drop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--white);
+  border: 1.5px dashed var(--gray-200);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.start-project__upload-drop:hover {
+  border-color: var(--accent);
+  background: rgba(99, 102, 241, 0.02);
+}
+
+.start-project__upload-drop input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.start-project__upload-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--gray-50);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-project__upload-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.start-project__upload-text strong {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.start-project__upload-text span {
+  font-size: 0.82rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+.start-project__file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.start-project__file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.start-project__file-name {
+  flex: 1;
+  color: var(--gray-900);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.start-project__file-size {
+  color: var(--gray-400);
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.start-project__file-remove {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--gray-400);
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.start-project__file-remove:hover {
+  background: var(--gray-200);
+  color: var(--gray-900);
+}
+
 /* Submit */
 .start-project__submit {
   display: flex;
@@ -2801,6 +2917,10 @@ a {
 
   .start-project__service {
     padding: 16px 18px;
+  }
+
+  .start-project__service-grid {
+    grid-template-columns: 1fr;
   }
 
   .start-project__submit .btn {

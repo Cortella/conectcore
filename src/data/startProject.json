@@ -39,9 +39,39 @@
       "description": "Evoluir, corrigir ou modernizar um sistema existente."
     },
     {
-      "value": "consultoria",
+      "value": "consultoria-ti",
       "title": "Consultoria em TI",
       "description": "Arquitetura, tecnologia, processo ou direção técnica."
+    },
+    {
+      "value": "ia",
+      "title": "Inteligência Artificial",
+      "description": "Treinamento e ajuste de modelos de IA especialistas para contextos empresariais."
+    },
+    {
+      "value": "consultoria-rh",
+      "title": "Consultoria em RH de Tecnologia",
+      "description": "Montagem, recrutamento técnico e gerenciamento de equipes de engenharia."
+    },
+    {
+      "value": "consultoria-infra",
+      "title": "Consultoria em Infraestrutura",
+      "description": "Otimização de custos de cloud, acompanhamento contínuo e arquitetura escalável."
+    },
+    {
+      "value": "automacao",
+      "title": "Automação Industrial & de Processos",
+      "description": "Programação de CLPs, análise de sinais, otimização de lógicas de controle e sistemas orientados a eventos."
+    },
+    {
+      "value": "embarcados",
+      "title": "Sistemas Embarcados",
+      "description": "Projeto de PCB, firmware e hardware sob medida — do protótipo à produção em escala."
+    },
+    {
+      "value": "outro",
+      "title": "Outro",
+      "description": "Não encontrou a opção ideal? Conte nos detalhes abaixo."
     }
   ],
   "budgetRanges": [
