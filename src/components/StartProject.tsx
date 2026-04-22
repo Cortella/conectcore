@@ -3,7 +3,10 @@ import { defaultStartProject } from "../data";
 import { navigate } from "../App";
 
 type ClientType = "pj" | "pf";
-type SubmitState = "idle" | "sending" | "sent";
+type SubmitState = "idle" | "sending" | "sent" | "error";
+
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
 
 interface FormState {
   name: string;
@@ -18,7 +21,7 @@ interface FormState {
   socials: string;
   serviceArea: string;
   description: string;
-  budget: string;
+  projectSize: string;
   timeline: string;
   referral: string;
 }
@@ -36,7 +39,7 @@ const INITIAL: FormState = {
   socials: "",
   serviceArea: "",
   description: "",
-  budget: "",
+  projectSize: "",
   timeline: "",
   referral: "",
 };
@@ -68,24 +71,77 @@ export function StartProject() {
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) =>
     setForm((f) => ({ ...f, [key]: value }));
 
-  const handleSubmit = (e: FormEvent) => {
+  const buildServiceLabel = () =>
+    data.serviceAreas.find((s) => s.value === form.serviceArea)?.title ?? form.serviceArea;
+
+  const buildSizeLabel = () =>
+    data.projectSizes.find((p) => p.value === form.projectSize)?.label ?? form.projectSize;
+
+  const buildTimelineLabel = () =>
+    data.timelines.find((t) => t.value === form.timeline)?.label ?? form.timeline;
+
+  const buildReferralLabel = () =>
+    data.referralSources.find((r) => r.value === form.referral)?.label ?? form.referral;
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (!WEB3FORMS_ACCESS_KEY) {
+      console.error("VITE_WEB3FORMS_ACCESS_KEY não configurada. Veja .env.example.");
+      setSubmitState("error");
+      return;
+    }
+
     setSubmitState("sending");
-    setTimeout(() => {
+
+    const payload = new FormData();
+    payload.append("access_key", WEB3FORMS_ACCESS_KEY);
+    payload.append("subject", `Nova solicitação de projeto — ${form.name}`);
+    payload.append("from_name", form.name);
+    payload.append("replyto", form.email);
+
+    payload.append("Nome completo", form.name);
+    payload.append("Como te chamar", form.nickname || "—");
+    payload.append("Tipo", form.clientType === "pj" ? "Pessoa Jurídica" : "Pessoa Física");
+    if (form.clientType === "pj") {
+      payload.append("Empresa", form.company);
+      payload.append("CNPJ", form.cnpj);
+      payload.append("Representante", form.repName || "—");
+      payload.append("Contato do representante", form.repContact || "—");
+    }
+    payload.append("E-mail", form.email);
+    payload.append("Telefone", form.phone);
+    payload.append("Redes sociais", form.socials || "—");
+    payload.append("Área de serviço", buildServiceLabel());
+    payload.append("Descrição do projeto", form.description);
+    payload.append("Tamanho do projeto", buildSizeLabel());
+    payload.append("Prazo", buildTimelineLabel());
+    payload.append("Como nos encontrou", buildReferralLabel() || "—");
+
+    files.slice(0, 5).forEach((file) => payload.append("attachments", file, file.name));
+
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, { method: "POST", body: payload });
+      const json = await res.json();
+      if (!res.ok || !json.success) throw new Error(json.message || "Falha no envio");
+
       setSubmitState("sent");
       setTimeout(() => {
         setSubmitState("idle");
         setForm(INITIAL);
-      }, 4000);
-    }, 1200);
+        setFiles([]);
+      }, 5000);
+    } catch (err) {
+      console.error("[StartProject] erro ao enviar:", err);
+      setSubmitState("error");
+    }
   };
 
   const submitLabel =
-    submitState === "sending"
-      ? "Enviando..."
-      : submitState === "sent"
-        ? "✓ Solicitação enviada"
-        : "Enviar solicitação";
+    submitState === "sending" ? "Enviando..."
+      : submitState === "sent" ? "✓ Solicitação enviada"
+      : submitState === "error" ? "Tentar novamente"
+      : "Enviar solicitação";
 
   return (
     <div className="start-project">
@@ -361,13 +417,13 @@ export function StartProject() {
               <div className="start-project__grid">
                 <div className="form-group">
                   <select
-                    id="budget"
+                    id="projectSize"
                     required
-                    value={form.budget}
-                    onChange={(e) => update("budget", e.target.value)}
+                    value={form.projectSize}
+                    onChange={(e) => update("projectSize", e.target.value)}
                   >
-                    <option value="" disabled>Faixa de orçamento</option>
-                    {data.budgetRanges.map((b) => (
+                    <option value="" disabled>Tamanho do projeto</option>
+                    {data.projectSizes.map((b) => (
                       <option key={b.value} value={b.value}>{b.label}</option>
                     ))}
                   </select>
@@ -423,11 +479,16 @@ export function StartProject() {
               <button
                 type="submit"
                 className="btn btn--primary"
-                disabled={submitState !== "idle"}
+                disabled={submitState === "sending" || submitState === "sent"}
                 style={submitState === "sent" ? { background: "#25D366" } : undefined}
               >
                 {submitLabel}
               </button>
+              {submitState === "error" && (
+                <p className="start-project__submit-error">
+                  Não foi possível enviar agora. Tente novamente ou escreva direto para <strong>contato@conectcore.com.br</strong>.
+                </p>
+              )}
               <p className="start-project__submit-note">
                 Responderemos em até 24 horas úteis no e-mail informado.
               </p>

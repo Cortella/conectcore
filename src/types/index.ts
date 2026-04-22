@@ -231,7 +231,7 @@ export interface StartProjectData {
   hero: StartProjectHero;
   sections: StartProjectSection[];
   serviceAreas: StartProjectServiceArea[];
-  budgetRanges: StartProjectOption[];
+  projectSizes: StartProjectOption[];
   timelines: StartProjectOption[];
   referralSources: StartProjectOption[];
 }

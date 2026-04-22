@@ -18,7 +18,7 @@
     },
     {
       "number": "03",
-      "title": "Orçamento e prazo",
+      "title": "Tamanho e prazo",
       "description": "Vamos alinhar expectativas desde o início."
     },
     {
@@ -74,26 +74,26 @@
       "description": "Não encontrou a opção ideal? Conte nos detalhes abaixo."
     }
   ],
-  "budgetRanges": [
+  "projectSizes": [
     {
-      "value": "under-20k",
-      "label": "Até R$ 20.000"
+      "value": "small",
+      "label": "Pequeno — escopo pontual ou MVP"
     },
     {
-      "value": "20k-50k",
-      "label": "R$ 20.000 – R$ 50.000"
+      "value": "medium",
+      "label": "Médio — projeto padrão"
     },
     {
-      "value": "50k-150k",
-      "label": "R$ 50.000 – R$ 150.000"
+      "value": "large",
+      "label": "Grande — múltiplas frentes"
     },
     {
-      "value": "150k-plus",
-      "label": "Acima de R$ 150.000"
+      "value": "enterprise",
+      "label": "Enterprise — escala corporativa"
     },
     {
-      "value": "discuss",
-      "label": "Prefiro discutir"
+      "value": "unknown",
+      "label": "Ainda não sei"
     }
   ],
   "timelines": [
