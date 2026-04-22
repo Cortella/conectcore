@@ -286,14 +286,6 @@ a {
   transform: translateY(-1px);
 }
 
-.nav--scrolled .nav__link--cta {
-  background: var(--gray-900);
-}
-
-.nav--scrolled .nav__link--cta:hover {
-  background: var(--accent);
-}
-
 /* Mobile toggle */
 .nav__toggle {
   display: none;

@@ -17,6 +17,7 @@ import type {
   CtaData,
   Partner,
   Project,
+  Certificate,
   StartProjectData,
 } from "../types";
 
@@ -34,6 +35,7 @@ import ctaJson from "./cta.json";
 import partnersJson from "./partners.json";
 import projectsJson from "./projects.json";
 import startProjectJson from "./startProject.json";
+import certificatesJson from "./certificates.json";
 
 export const defaultServices: Service[] = servicesJson;
 export const defaultCases: CaseStudy[] = casesJson as CaseStudy[];
@@ -49,3 +51,4 @@ export const defaultCta: CtaData = ctaJson;
 export const defaultPartners: Partner[] = partnersJson;
 export const defaultProjects: Project[] = projectsJson as Project[];
 export const defaultStartProject: StartProjectData = startProjectJson;
+export const defaultCertificates: Certificate[] = certificatesJson;

@@ -201,7 +201,17 @@ export interface Project extends BaseEntity {
   details: ProjectDetails;
 }
 
-/* ── New Project Form ─────────────────────────────────────── */
+/* ── Certificates ─────────────────────────────────────────── */
+
+export interface Certificate extends BaseEntity {
+  src: string;
+  alt: string;
+  logo: string;
+  title: string;
+  org: string;
+}
+
+/* ── Start Project (página de captação) ──────────────────── */
 
 export interface StartProjectSection {
   number: string;

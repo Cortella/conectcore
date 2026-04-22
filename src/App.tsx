@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { Metrics } from "./components/Metrics";
 import { Partners } from "./components/Partners";
 import { About } from "./components/About";
 import { Projects } from "./components/Projects";
